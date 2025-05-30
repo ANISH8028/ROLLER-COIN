@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROLLER COIN - Earn RC Coins</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #8a2be2, #4b0082, #9400d3);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 480px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            letter-spacing: 1px;
+            background: linear-gradient(to right, #ff9ff3, #feca57, #ff9ff3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+        }
+        
+        .header p {
+            color: #ddd;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
+        /* Wallet Section */
+        .wallet-section {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 182, 193, 0.5);
+        }
+        
+        .wallet-title {
+            font-size: 1.5rem;
+            color: #feca57;
+            margin-bottom: 15px;
+        }
+        
+        .balance {
+            font-size: 2.8rem;
+            font-weight: bold;
+            color: #ff9ff3;
+            text-shadow: 0 0 15px rgba(255, 158, 243, 0.7);
+            margin-bottom: 5px;
+        }
+        
+        .coin-balance {
+            font-size: 1.2rem;
+            color: #feca57;
+            margin-bottom: 15px;
+        }
+        
+        .withdraw-btn {
+            background: linear-gradient(to right, #feca57, #ff9ff3);
+            border: none;
+            border-radius: 15px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2c2c54;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            display: inline-block;
+            width: 100%;
+            max-width: 300px;
+            margin-top: 10px;
+        }
+        
+        .withdraw-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(254, 202, 87, 0.5);
+        }
+        
+        /* Tap Area */
+        .tap-area {
+            background: linear-gradient(45deg, #5f27cd, #341f97);
+            height: 320px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border: 4px solid rgba(255, 182, 193, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .tap-area:active {
+            transform: scale(0.98);
+        }
+        
+        .roller-coin {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            z-index: 2;
+            animation: bounce 1.5s infinite;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid #feca57;
+            box-shadow: 0 0 30px rgba(254, 202, 87, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: white;
+            padding: 20px;
+        }
+        
+        .roller-coin-text {
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1.2;
+            color: #5f27cd;
+        }
+        
+        .money-animation {
+            position: absolute;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #feca57;
+            z-index: 3;
+            pointer-events: none;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+            opacity: 0;
+        }
+        
+        /* Stats Section */
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .stat-item .value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ff9ff3;
+        }
+        
+        .stat-item .label {
+            font-size: 0.9rem;
+            color: #bbb;
+        }
+        
+        /* Withdraw Options */
+        .withdraw-options {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 182, 193, 0.5);
+        }
+        
+        .withdraw-title {
+            font-size: 1.5rem;
+            color: #feca57;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .withdraw-form {
+            margin-top: 15px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ff9ff3;
+            font-weight: 600;
+        }
+        
+        .form-group select, 
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: none;
+            background: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+        }
+        
+        .usdt-info {
+            font-size: 0.85rem;
+            color: #feca57;
+            margin-top: 10px;
+            line-height: 1.4;
+            text-align: center;
+        }
+        
+        .coin-earning {
+            background: rgba(255, 182, 193, 0.2);
+            padding: 5px 10px;
+            border-radius: 10px;
+            display: inline-block;
+            margin: 5px 0;
+            font-weight: 600;
+            color: #feca57;
+        }
+        
+        /* Referral Section */
+        .referral-section {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 182, 193, 0.5);
+        }
+        
+        .referral-title {
+            font-size: 1.5rem;
+            color: #feca57;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .referral-code {
+            background: rgba(255, 182, 193, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #ff9ff3;
+            margin: 15px 0;
+            border: 1px dashed #ff9ff3;
+            word-break: break-all;
+        }
+        
+        .copy-btn {
+            background: linear-gradient(to right, #feca57, #ff9ff3);
+            border: none;
+            border-radius: 10px;
+            padding: 12px 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2c2c54;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .copy-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(254, 202, 87, 0.5);
+        }
+        
+        /* Bottom Navigation */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            padding: 15px 10px;
+            margin-top: auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .nav-item {
+            text-align: center;
+            padding: 8px 15px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            flex: 1;
+            margin: 0 5px;
+        }
+        
+        .nav-item.active {
+            background: linear-gradient(135deg, #feca57, #ff9ff3);
+            box-shadow: 0 5px 10px rgba(254, 202, 87, 0.5);
+        }
+        
+        .nav-item.active i,
+        .nav-item.active span {
+            color: #2c2c54;
+        }
+        
+        .nav-item i {
+            font-size: 1.5rem;
+            color: #ff9ff3;
+            margin-bottom: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-item span {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #ddd;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-item:hover {
+            background: rgba(255, 182, 193, 0.2);
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .coin {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: radial-gradient(circle at 30% 30%, #feca57, #ff9f43);
+            border-radius: 50%;
+            box-shadow: 0 0 10px #feca57;
+            pointer-events: none;
+            opacity: 0;
+            z-index: 1;
+        }
+        
+        /* Screen Sections */
+        .screen {
+            display: none;
+            flex: 1;
+            overflow-y: auto;
+            padding-bottom: 20px;
+        }
+        
+        .screen.active {
+            display: block;
+        }
+        
+        /* Success Message */
+        .success-message {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(46, 204, 113, 0.9);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: none;
+            animation: slideIn 0.3s, fadeOut 0.5s 2s forwards;
+        }
+        
+        @keyframes slideIn {
+            from { top: -50px; opacity: 0; }
+            to { top: 20px; opacity: 1; }
+        }
+        
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .tap-area {
+                height: 280px;
+            }
+            
+            .roller-coin {
+                width: 170px;
+                height: 170px;
+            }
+            
+            .roller-coin-text {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="success-message" id="success-message">
+        <i class="fas fa-check-circle"></i> Operation completed successfully!
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1 id="screen-title">ROLLER COIN</h1>
+            <p id="screen-subtitle">Tap the coin to earn RC coins!</p>
+        </div>
+        
+        <!-- Home Screen -->
+        <div class="screen active" id="home-screen">
+            <div class="wallet-section">
+                <div class="wallet-title">Your RC Balance</div>
+                <div class="balance" id="balance">0 RC</div>
+                <div class="coin-balance" id="coin-balance">$0.00</div>
+                <button class="withdraw-btn" id="withdraw-btn">
+                    <i class="fas fa-wallet"></i> Withdraw Now
+                </button>
+            </div>
+            
+            <div class="tap-area" id="tap-area">
+                <div class="roller-coin">
+                    <div class="roller-coin-text">
+                        ROLLER<br>COIN
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="value" id="per-tap">10 RC</div>
+                    <div class="label">Per Tap</div>
+                </div>
+                <div class="stat-item">
+                    <div class="value" id="total-taps">0</div>
+                    <div class="label">Total Taps</div>
+                </div>
+                <div class="stat-item">
+                    <div class="value" id="multiplier">1x</div>
+                    <div class="label">Multiplier</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Withdraw Screen -->
+        <div class="screen" id="withdraw-screen">
+            <div class="wallet-section">
+                <div class="wallet-title">Your RC Balance</div>
+                <div class="balance" id="withdraw-balance">0 RC</div>
+                <div class="coin-balance" id="withdraw-coin-balance">$0.00</div>
+            </div>
+            
+            <div class="withdraw-options">
+                <div class="withdraw-title">Withdraw RC Coins</div>
+                
+                <div class="withdraw-form">
+                    <div class="form-group">
+                        <label for="withdraw-method"><i class="fas fa-coins"></i> Withdrawal Method</label>
+                        <select id="withdraw-method">
+                            <option value="bnb">BNB Smart Child</option>
+                            <option value="usdd">USDD TRC-20</option>
+                            <option value="trx">TRX</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="wallet-address"><i class="fas fa-wallet"></i> Wallet Address</label>
+                        <input type="text" id="wallet-address" placeholder="Enter your wallet address">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="withdraw-amount"><i class="fas fa-money-bill-wave"></i> Amount (RC)</label>
+                        <input type="number" id="withdraw-amount" value="10000" min="10000">
+                    </div>
+                    
+                    <p class="usdt-info">Minimum withdrawal: 10,000 RC ($1.00)</p>
+                </div>
+                
+                <button class="withdraw-btn" id="withdraw-now-btn" style="margin-top: 20px;">
+                    <i class="fas fa-paper-plane"></i> Process Withdrawal
+                </button>
+            </div>
+            
+            <div class="referral-section" style="margin-top: 20px;">
+                <div class="referral-title">Withdrawal History</div>
+                <div style="text-align: center; color: #bbb; padding: 20px;">
+                    <i class="fas fa-history" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                    <p>No withdrawal history yet</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Referral Screen -->
+        <div class="screen" id="referral-screen">
+            <div class="wallet-section">
+                <div class="wallet-title">Referral Earnings</div>
+                <div class="balance" id="referral-balance">0 RC</div>
+                <div class="coin-balance" id="referral-coin-balance">$0.00</div>
+            </div>
+            
+            <div class="referral-section">
+                <div class="referral-title">Refer Friends & Earn</div>
+                <p>Invite friends using your link and earn 10% of their earnings!</p>
+                <div class="referral-code" id="referral-code">https://rollercoin.com/?ref=RC-7A3B9F</div>
+                <button class="copy-btn" id="copy-btn">
+                    <i class="fas fa-copy"></i> Copy Referral Link
+                </button>
+            </div>
+            
+            <div class="stats" style="margin-top: 20px;">
+                <div class="stat-item">
+                    <div class="value" id="total-referrals">0</div>
+                    <div class="label">Total Referrals</div>
+                </div>
+                <div class="stat-item">
+                    <div class="value" id="referral-earnings">0 RC</div>
+                    <div class="label">Earned from Referrals</div>
+                </div>
+            </div>
+            
+            <div class="referral-section" style="margin-top: 20px;">
+                <div class="referral-title">Your Referrals</div>
+                <div style="text-align: center; color: #bbb; padding: 20px;">
+                    <i class="fas fa-users" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                    <p>No referrals yet</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <div class="nav-item active" data-screen="home">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </div>
+            <div class="nav-item" data-screen="withdraw">
+                <i class="fas fa-wallet"></i>
+                <span>Withdraw</span>
+            </div>
+            <div class="nav-item" data-screen="referral">
+                <i class="fas fa-users"></i>
+                <span>Refer</span>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Game state
+        const gameState = {
+            ucBalance: 0,
+            perTap: 10,
+            totalTaps: 0,
+            multiplier: 1,
+            referralEarnings: 0,
+            totalReferrals: 0
+        };
+        
+        // DOM Elements
+        const balanceEl = document.getElementById('balance');
+        const coinBalanceEl = document.getElementById('coin-balance');
+        const withdrawBalanceEl = document.getElementById('withdraw-balance');
+        const withdrawCoinBalanceEl = document.getElementById('withdraw-coin-balance');
+        const referralBalanceEl = document.getElementById('referral-balance');
+        const referralCoinBalanceEl = document.getElementById('referral-coin-balance');
+        const tapArea = document.getElementById('tap-area');
+        const perTapEl = document.getElementById('per-tap');
+        const totalTapsEl = document.getElementById('total-taps');
+        const multiplierEl = document.getElementById('multiplier');
+        const withdrawBtn = document.getElementById('withdraw-btn');
+        const withdrawNowBtn = document.getElementById('withdraw-now-btn');
+        const referralCodeEl = document.getElementById('referral-code');
+        const copyBtn = document.getElementById('copy-btn');
+        const totalReferralsEl = document.getElementById('total-referrals');
+        const referralEarningsEl = document.getElementById('referral-earnings');
+        const screenTitle = document.getElementById('screen-title');
+        const screenSubtitle = document.getElementById('screen-subtitle');
+        const withdrawMethod = document.getElementById('withdraw-method');
+        const walletAddress = document.getElementById('wallet-address');
+        const withdrawAmount = document.getElementById('withdraw-amount');
+        const successMessage = document.getElementById('success-message');
+        
+        // Screen elements
+        const screens = {
+            home: document.getElementById('home-screen'),
+            withdraw: document.getElementById('withdraw-screen'),
+            referral: document.getElementById('referral-screen')
+        };
+        
+        // Nav items
+        const navItems = document.querySelectorAll('.nav-item');
+        
+        // Initialize game
+        function initGame() {
+            updateUI();
+            
+            // Load saved game if exists
+            const savedGame = localStorage.getItem('rollerCoinGame');
+            if (savedGame) {
+                const parsed = JSON.parse(savedGame);
+                Object.assign(gameState, parsed);
+                updateUI();
+            }
+            
+            // Set home screen as active
+            showScreen('home');
+        }
+        
+        // Update UI with current game state
+        function updateUI() {
+            const dollars = gameState.ucBalance / 10000;
+            
+            balanceEl.textContent = `${gameState.ucBalance.toLocaleString()} RC`;
+            coinBalanceEl.textContent = `$${dollars.toFixed(2)}`;
+            
+            withdrawBalanceEl.textContent = `${gameState.ucBalance.toLocaleString()} RC`;
+            withdrawCoinBalanceEl.textContent = `$${dollars.toFixed(2)}`;
+            
+            referralBalanceEl.textContent = `${gameState.referralEarnings.toLocaleString()} RC`;
+            referralCoinBalanceEl.textContent = `$${(gameState.referralEarnings / 10000).toFixed(2)}`;
+            
+            perTapEl.textContent = `${gameState.perTap} RC`;
+            totalTapsEl.textContent = gameState.totalTaps.toLocaleString();
+            multiplierEl.textContent = `${gameState.multiplier}x`;
+            totalReferralsEl.textContent = gameState.totalReferrals;
+            referralEarningsEl.textContent = `${gameState.referralEarnings.toLocaleString()} RC`;
+            
+            // Update withdraw button state
+            withdrawBtn.disabled = gameState.ucBalance < 10000;
+            if (withdrawBtn.disabled) {
+                withdrawBtn.style.opacity = '0.6';
+                withdrawBtn.style.cursor = 'not-allowed';
+            } else {
+                withdrawBtn.style.opacity = '1';
+                withdrawBtn.style.cursor = 'pointer';
+            }
+        }
+        
+        // Show specific screen
+        function showScreen(screenName) {
+            // Hide all screens
+            Object.values(screens).forEach(screen => {
+                screen.classList.remove('active');
+            });
+            
+            // Show selected screen
+            screens[screenName].classList.add('active');
+            
+            // Update nav items
+            navItems.forEach(item => {
+                item.classList.toggle('active', item.getAttribute('data-screen') === screenName);
+            });
+            
+            // Update header based on screen
+            switch(screenName) {
+                case 'home':
+                    screenTitle.textContent = 'ROLLER COIN';
+                    screenSubtitle.textContent = 'Tap the coin to earn RC coins!';
+                    break;
+                case 'withdraw':
+                    screenTitle.textContent = 'Withdraw RC';
+                    screenSubtitle.textContent = 'Withdraw your RC coins to your wallet';
+                    break;
+                case 'referral':
+                    screenTitle.textContent = 'Refer & Earn';
+                    screenSubtitle.textContent = 'Invite friends and earn more RC';
+                    break;
+            }
+        }
+        
+        // Handle tap event
+        function handleTap(e) {
+            // Calculate earnings
+            const earnings = gameState.perTap * gameState.multiplier;
+            gameState.ucBalance += earnings;
+            gameState.totalTaps++;
+            
+            // Create money animation
+            createMoneyAnimation(e.clientX, e.clientY, earnings);
+            
+            // Create coins animation
+            createCoinsAnimation();
+            
+            // Update UI
+            updateUI();
+            saveGame();
+        }
+        
+        // Create floating money animation
+        function createMoneyAnimation(x, y, amount) {
+            const moneyAnim = document.createElement('div');
+            moneyAnim.className = 'money-animation';
+            moneyAnim.innerHTML = `<div class="coin-earning">+${amount} RC</div>`;
+            
+            // Position relative to tap area
+            const tapRect = tapArea.getBoundingClientRect();
+            const centerX = tapRect.left + tapRect.width/2;
+            const centerY = tapRect.top + tapRect.height/2;
+            
+            moneyAnim.style.left = `${centerX - 50}px`;
+            moneyAnim.style.top = `${centerY - 30}px`;
+            
+            document.body.appendChild(moneyAnim);
+            
+            // Animate
+            setTimeout(() => {
+                moneyAnim.style.transition = 'all 1s ease-out';
+                moneyAnim.style.transform = 'translateY(-60px)';
+                moneyAnim.style.opacity = '0';
+                
+                // Remove after animation
+                setTimeout(() => {
+                    document.body.removeChild(moneyAnim);
+                }, 1000);
+            }, 10);
+        }
+        
+        // Create coins animation
+        function createCoinsAnimation() {
+            for (let i = 0; i < 5; i++) {
+                const coin = document.createElement('div');
+                coin.className = 'coin';
+                
+                // Position around tap area
+                const tapRect = tapArea.getBoundingClientRect();
+                const x = tapRect.left + Math.random() * tapRect.width;
+                const y = tapRect.top + Math.random() * tapRect.height;
+                
+                coin.style.left = `${x}px`;
+                coin.style.top = `${y}px`;
+                
+                document.body.appendChild(coin);
+                
+                // Animate coin
+                setTimeout(() => {
+                    coin.style.animation = `none`;
+                    void coin.offsetWidth; // Trigger reflow
+                    coin.style.animation = `coin-animation ${0.5 + Math.random() * 0.5}s forwards`;
+                    
+                    // Remove after animation
+                    setTimeout(() => {
+                        if (coin.parentNode) {
+                            document.body.removeChild(coin);
+                        }
+                    }, 1000);
+                }, 10);
+            }
+        }
+        
+        // Withdraw money
+        function processWithdrawal() {
+            const amount = parseInt(withdrawAmount.value);
+            const method = withdrawMethod.value;
+            const address = walletAddress.value.trim();
+            
+            if (!address) {
+                showSuccessMessage('Please enter your wallet address');
+                return;
+            }
+            
+            if (address.length < 10) {
+                showSuccessMessage('Please enter a valid wallet address');
+                return;
+            }
+            
+            if (amount < 10000) {
+                showSuccessMessage('Minimum withdrawal is 10,000 RC ($1.00)');
+                return;
+            }
+            
+            if (gameState.ucBalance < amount) {
+                showSuccessMessage('Insufficient RC balance');
+                return;
+            }
+            
+            // Process withdrawal
+            gameState.ucBalance -= amount;
+            
+            // Show success message
+            const methodName = 
+                method === 'bnb' ? 'BNB Smart Child' : 
+                method === 'usdd' ? 'USDD TRC-20' : 'TRX';
+                
+            showSuccessMessage(`${amount.toLocaleString()} RC sent to your ${methodName} wallet!`);
+            
+            // Update UI
+            updateUI();
+            saveGame();
+        }
+        
+        // Copy referral code
+        function copyReferralLink() {
+            navigator.clipboard.writeText(referralCodeEl.textContent)
+                .then(() => {
+                    // Show copied message
+                    const originalText = copyBtn.innerHTML;
+                    copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                    showSuccessMessage('Referral link copied to clipboard!');
+                    
+                    setTimeout(() => {
+                        copyBtn.innerHTML = originalText;
+                    }, 2000);
+                })
+                .catch(err => {
+                    console.error('Failed to copy: ', err);
+                });
+        }
+        
+        // Show success message
+        function showSuccessMessage(message) {
+            successMessage.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+            successMessage.style.display = 'block';
+            
+            // Hide after 3 seconds
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 3000);
+        }
+        
+        // Save game state
+        function saveGame() {
+            localStorage.setItem('rollerCoinGame', JSON.stringify(gameState));
+        }
+        
+        // Initialize
+        initGame();
+        
+        // Event listeners
+        tapArea.addEventListener('click', handleTap);
+        withdrawBtn.addEventListener('click', () => showScreen('withdraw'));
+        withdrawNowBtn.addEventListener('click', processWithdrawal);
+        copyBtn.addEventListener('click', copyReferralLink);
+        
+        // Bottom nav interaction
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const screenName = item.getAttribute('data-screen');
+                showScreen(screenName);
+            });
+        });
+        
+        // Coin animation keyframes
+        const styleSheet = document.styleSheets[0];
+        styleSheet.insertRule(`
+            @keyframes coin-animation {
+                0% { 
+                    transform: translateY(0) rotate(0deg);
+                    opacity: 1;
+                }
+                100% { 
+                    transform: translateY(-100px) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `, styleSheet.cssRules.length);
+    </script>
+</body>
+</html>
