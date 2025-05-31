@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ROLLER COIN - Earn Crypto</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Ad script before closing </head> tag -->
+    <script type='text/javascript' src='//pl26795987.profitableratecpm.com/0b/e3/64/0be3648a33d8f30e2fe3d699e8ab166a.js'></script>
     <style>
         * {
             margin: 0;
@@ -814,6 +816,39 @@
                 width: 100%;
             }
         }
+        
+        /* Ad containers */
+        .ad-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 10px;
+            margin: 15px 0;
+            text-align: center;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+        }
+        
+        .ad-title {
+            color: #64ffda;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .ad-link {
+            color: #feca57;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background: rgba(254, 202, 87, 0.1);
+        }
+        
+        .ad-link:hover {
+            background: rgba(254, 202, 87, 0.2);
+        }
     </style>
 </head>
 <body>
@@ -863,6 +898,13 @@
                 </button>
             </div>
             
+            <!-- Native Banner Ad -->
+            <div class="ad-container">
+                <div class="ad-title">Sponsored Content</div>
+                <script async="async" data-cfasync="false" src="//pl26796007.profitableratecpm.com/2881b726f708ce67580512a18676da29/invoke.js"></script>
+                <div id="container-2881b726f708ce67580512a18676da29"></div>
+            </div>
+            
             <div class="tap-area" id="tap-area">
                 <div class="roller-coin">
                     <div class="roller-coin-text">
@@ -886,10 +928,13 @@
                 </div>
             </div>
             
-            <!-- Bonus Ad Button -->
-            <button class="withdraw-btn" id="bonus-ad-btn" style="margin-top: 20px; background: linear-gradient(to right, #ff9a9e, #fad0c4);">
-                <i class="fas fa-ad"></i> Watch Ad for 2x Bonus (1 hour)
-            </button>
+            <!-- Hyperlink Ad -->
+            <div class="ad-container">
+                <div class="ad-title">Special Offer</div>
+                <a href="https://www.profitableratecpm.com/wn3bx7t6h?key=beda1e3501f18294ac0ba248ac724345" class="ad-link" target="_blank">
+                    <i class="fas fa-gift"></i> Claim your special bonus offer now!
+                </a>
+            </div>
         </div>
         
         <!-- Withdraw Screen -->
@@ -928,6 +973,21 @@
                 <button class="withdraw-btn" id="withdraw-now-btn" style="margin-top: 20px;">
                     <i class="fas fa-paper-plane"></i> Process Withdrawal
                 </button>
+            </div>
+            
+            <!-- Ad Placement -->
+            <div class="ad-container">
+                <div class="ad-title">Advertisement</div>
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : '930b2e2b9160e3401e8edee0013f15b0',
+                        'format' : 'iframe',
+                        'height' : 60,
+                        'width' : 468,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//www.highperformanceformat.com/930b2e2b9160e3401e8edee0013f15b0/invoke.js"></script>
             </div>
             
             <div class="referral-section" style="margin-top: 20px;">
@@ -1072,6 +1132,9 @@
         </div>
     </div>
     
+    <!-- Script before closing </body> tag -->
+    <script type='text/javascript' src='//pl26795990.profitableratecpm.com/45/78/44/4578440c5a3e8ed7c3b6e86d986c2d71.js'></script>
+    
     <script>
         // Game state
         const gameState = {
@@ -1088,11 +1151,9 @@
                 tapsAchievement: false,
                 earnAchievement: false
             },
-            referralCode: "RC-BEP20-7A3B9F",
+            referralCode: "",
             referredBy: "",
-            firstVisit: true,
-            bonusActive: false,
-            bonusExpires: 0
+            firstVisit: true
         };
         
         // DOM Elements
@@ -1114,10 +1175,10 @@
         const referralEarningsEl = document.getElementById('referral-earnings');
         const screenTitle = document.getElementById('screen-title');
         const screenSubtitle = document.getElementById('screen-subtitle');
+        const withdrawMethod = document.getElementById('withdraw-method');
         const walletAddress = document.getElementById('wallet-address');
         const withdrawAmount = document.getElementById('withdraw-amount');
         const successMessage = document.getElementById('success-message');
-        const bonusAdBtn = document.getElementById('bonus-ad-btn');
         
         // Task elements
         const watchAdBtn = document.getElementById('watch-ad-btn');
@@ -1149,6 +1210,16 @@
         // Nav items
         const navItems = document.querySelectorAll('.nav-item');
         
+        // Generate a random 6-digit alphanumeric code
+        function generateReferralCode() {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let result = '';
+            for (let i = 0; i < 6; i++) {
+                result += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return result;
+        }
+        
         // Initialize game
         function initGame() {
             // Load saved game if exists
@@ -1156,38 +1227,17 @@
             if (savedGame) {
                 const parsed = JSON.parse(savedGame);
                 Object.assign(gameState, parsed);
-                
-                // Check if bonus is still active
-                if (gameState.bonusActive && gameState.bonusExpires > Date.now()) {
-                    gameState.multiplier = 2;
-                    bonusAdBtn.innerHTML = '<i class="fas fa-ad"></i> Bonus Active!';
-                    bonusAdBtn.style.background = 'linear-gradient(to right, #64ffda, #5e60ce)';
-                    
-                    // Set timeout to remove bonus
-                    const timeLeft = gameState.bonusExpires - Date.now();
-                    setTimeout(() => {
-                        gameState.bonusActive = false;
-                        gameState.multiplier = 1;
-                        updateUI();
-                        bonusAdBtn.innerHTML = '<i class="fas fa-ad"></i> Watch Ad for 2x Bonus (1 hour)';
-                        bonusAdBtn.style.background = 'linear-gradient(to right, #ff9a9e, #fad0c4)';
-                        saveGame();
-                    }, timeLeft);
-                } else {
-                    gameState.bonusActive = false;
-                    gameState.multiplier = 1;
-                }
-                
                 updateUI();
                 updateTaskButtons();
                 gameState.firstVisit = false;
             } else {
-                // First time user
+                // First time user - generate referral code
+                gameState.referralCode = generateReferralCode();
                 gameState.firstVisit = true;
             }
             
             // Update referral code display
-            referralCodeEl.textContent = `https://rollercoin.com/?ref=${gameState.referralCode}`;
+            referralCodeEl.textContent = `https://rollercoin.com/?ref=RC-${gameState.referralCode}`;
             
             // Show referral modal for new users
             if (gameState.firstVisit) {
@@ -1236,7 +1286,8 @@
             referralEarningsEl.textContent = `${gameState.referralEarnings.toLocaleString()} RC`;
             
             // Update withdraw button state
-            if (gameState.rcBalance < 1000) {
+            withdrawBtn.disabled = gameState.rcBalance < 1000;
+            if (withdrawBtn.disabled) {
                 withdrawBtn.style.opacity = '0.6';
                 withdrawBtn.style.cursor = 'not-allowed';
             } else {
@@ -1428,6 +1479,7 @@
         // Withdraw money
         function processWithdrawal() {
             const amount = parseInt(withdrawAmount.value);
+            const method = withdrawMethod.value;
             const address = walletAddress.value.trim();
             
             if (!address) {
@@ -1486,33 +1538,24 @@
         // Complete task: Watch Ad
         function completeWatchAd() {
             if (!gameState.tasks.adWatched) {
-                // Simulate ad watching
-                setTimeout(() => {
-                    gameState.rcBalance += 500;
-                    gameState.tasks.adWatched = true;
-                    updateUI();
-                    updateTaskButtons();
-                    saveGame();
-                    showSuccessMessage(`You earned 500 RC (${formatDollars(rcToDollars(500))}) for watching an ad!`);
-                }, 1000);
+                gameState.rcBalance += 500;
+                gameState.tasks.adWatched = true;
+                updateUI();
+                updateTaskButtons();
+                saveGame();
+                showSuccessMessage(`You earned 500 RC (${formatDollars(rcToDollars(500))}) for watching an ad!`);
             }
         }
         
         // Complete task: Visit Website
         function completeVisitWebsite() {
             if (!gameState.tasks.websiteVisited) {
-                // Simulate ad watching
-                setTimeout(() => {
-                    gameState.rcBalance += 1000;
-                    gameState.tasks.websiteVisited = true;
-                    updateUI();
-                    updateTaskButtons();
-                    saveGame();
-                    showSuccessMessage(`You earned 1,000 RC (${formatDollars(rcToDollars(1000))}) for visiting our website!`);
-                    
-                    // Open website in new tab
-                    window.open('https://example.com', '_blank');
-                }, 1000);
+                gameState.rcBalance += 1000;
+                gameState.tasks.websiteVisited = true;
+                updateUI();
+                updateTaskButtons();
+                saveGame();
+                showSuccessMessage(`You earned 1,000 RC (${formatDollars(rcToDollars(1000))}) for visiting our website!`);
             }
         }
         
@@ -1550,36 +1593,6 @@
                 saveGame();
                 showSuccessMessage(`Congratulations! You earned 5,000 RC (${formatDollars(rcToDollars(5000))}) for earning 50,000 RC!`);
             }
-        }
-        
-        // Activate bonus from watching ad
-        function activateBonus() {
-            // Simulate ad watching
-            setTimeout(() => {
-                gameState.bonusActive = true;
-                gameState.multiplier = 2;
-                gameState.bonusExpires = Date.now() + (60 * 60 * 1000); // 1 hour
-                
-                // Update UI
-                updateUI();
-                saveGame();
-                
-                bonusAdBtn.innerHTML = '<i class="fas fa-ad"></i> Bonus Active!';
-                bonusAdBtn.style.background = 'linear-gradient(to right, #64ffda, #5e60ce)';
-                
-                showSuccessMessage('2x multiplier activated for 1 hour!');
-                
-                // Set timeout to remove bonus
-                setTimeout(() => {
-                    gameState.bonusActive = false;
-                    gameState.multiplier = 1;
-                    updateUI();
-                    bonusAdBtn.innerHTML = '<i class="fas fa-ad"></i> Watch Ad for 2x Bonus (1 hour)';
-                    bonusAdBtn.style.background = 'linear-gradient(to right, #ff9a9e, #fad0c4)';
-                    saveGame();
-                    showSuccessMessage('Your 2x multiplier has expired');
-                }, 60 * 60 * 1000); // 1 hour
-            }, 1000);
         }
         
         // Handle referral code submission
@@ -1637,7 +1650,6 @@
         withdrawBtn.addEventListener('click', () => showScreen('withdraw'));
         withdrawNowBtn.addEventListener('click', processWithdrawal);
         copyBtn.addEventListener('click', copyReferralLink);
-        bonusAdBtn.addEventListener('click', activateBonus);
         
         // Task event listeners
         watchAdBtn.addEventListener('click', completeWatchAd);
