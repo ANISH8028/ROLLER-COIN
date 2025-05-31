@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ROLLER COIN - Earn Crypto</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Ad script before closing </head> tag -->
-    <script type='text/javascript' src='//pl26795987.profitableratecpm.com/0b/e3/64/0be3648a33d8f30e2fe3d699e8ab166a.js'></script>
     <style>
         * {
             margin: 0;
@@ -779,6 +777,89 @@
             box-shadow: 0 5px 15px rgba(94, 96, 206, 0.5);
         }
         
+        /* Withdrawal Notice */
+        .withdrawal-notice {
+            background: rgba(254, 202, 87, 0.15);
+            border: 2px solid rgba(254, 202, 87, 0.4);
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+            margin-top: 15px;
+        }
+        
+        .withdrawal-notice h3 {
+            color: #feca57;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .withdrawal-notice p {
+            color: #feca57;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        /* Ad containers */
+        .ad-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 10px;
+            margin: 15px 0;
+            text-align: center;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+        }
+        
+        .ad-title {
+            color: #64ffda;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .ad-link {
+            color: #feca57;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background: rgba(254, 202, 87, 0.1);
+        }
+        
+        .ad-link:hover {
+            background: rgba(254, 202, 87, 0.2);
+        }
+        
+        /* Bonus Counter */
+        .bonus-counter {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(100, 255, 218, 0.2);
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            color: #64ffda;
+            font-weight: 600;
+            z-index: 10;
+        }
+        
+        /* Bonus Timer */
+        .bonus-timer {
+            position: absolute;
+            top: 40px;
+            right: 10px;
+            background: rgba(254, 202, 87, 0.2);
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            color: #feca57;
+            font-weight: 600;
+            z-index: 10;
+        }
+        
         /* Responsive adjustments */
         @media (max-width: 480px) {
             .container {
@@ -815,39 +896,39 @@
                 margin-top: 10px;
                 width: 100%;
             }
+            
+            .ad-container {
+                padding: 8px;
+            }
         }
         
-        /* Ad containers */
-        .ad-container {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 10px;
+        /* Ad styling */
+        .ad-wrapper {
             margin: 15px 0;
+            display: flex;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            padding: 10px;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .ad-banner {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 60px;
+            width: 100%;
+        }
+        
+        .ad-placeholder {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.9rem;
+            padding: 10px;
             text-align: center;
-            border: 1px solid rgba(100, 255, 218, 0.2);
-        }
-        
-        .ad-title {
-            color: #64ffda;
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .ad-link {
-            color: #feca57;
-            text-decoration: none;
-            font-size: 0.9rem;
-            display: inline-block;
-            margin-top: 10px;
-            padding: 5px 10px;
-            border-radius: 5px;
-            background: rgba(254, 202, 87, 0.1);
-        }
-        
-        .ad-link:hover {
-            background: rgba(254, 202, 87, 0.2);
         }
     </style>
 </head>
@@ -896,14 +977,15 @@
                 <button class="withdraw-btn" id="withdraw-btn">
                     <i class="fas fa-wallet"></i> Withdraw Now
                 </button>
+                <div class="withdrawal-notice">
+                    <h3><i class="fas fa-calendar-alt"></i> Withdrawals Coming Soon</h3>
+                    <p>Withdrawal functionality will be available in the first week of July!</p>
+                </div>
             </div>
             
-            <!-- Native Banner Ad -->
-            <div class="ad-container">
-                <div class="ad-title">Sponsored Content</div>
-                <script async="async" data-cfasync="false" src="//pl26796007.profitableratecpm.com/2881b726f708ce67580512a18676da29/invoke.js"></script>
-                <div id="container-2881b726f708ce67580512a18676da29"></div>
-            </div>
+            <!-- Bonus counter and timer -->
+            <div class="bonus-counter" id="bonus-counter">Bonus: 0/10 taps</div>
+            <div class="bonus-timer" id="bonus-timer">Bonus in: 10s</div>
             
             <div class="tap-area" id="tap-area">
                 <div class="roller-coin">
@@ -915,8 +997,8 @@
             
             <div class="stats">
                 <div class="stat-item">
-                    <div class="value" id="per-tap">10 RC</div>
-                    <div class="label">Per Tap ($0.01)</div>
+                    <div class="value" id="per-tap">1000 RC</div>
+                    <div class="label">Per Tap ($1.00)</div>
                 </div>
                 <div class="stat-item">
                     <div class="value" id="total-taps">0</div>
@@ -928,12 +1010,30 @@
                 </div>
             </div>
             
-            <!-- Hyperlink Ad -->
-            <div class="ad-container">
-                <div class="ad-title">Special Offer</div>
-                <a href="https://www.profitableratecpm.com/wn3bx7t6h?key=beda1e3501f18294ac0ba248ac724345" class="ad-link" target="_blank">
-                    <i class="fas fa-gift"></i> Claim your special bonus offer now!
-                </a>
+            <!-- Ad Container 1 -->
+            <div class="ad-wrapper">
+                <div class="ad-banner">
+                    <div class="ad-placeholder">Advertisement</div>
+                    <script type="text/javascript">
+                        atOptions = {
+                            'key' : '930b2e2b9160e3401e8edee0013f15b0',
+                            'format' : 'iframe',
+                            'height' : 60,
+                            'width' : 468,
+                            'params' : {}
+                        };
+                    </script>
+                    <script type="text/javascript" src="//www.highperformanceformat.com/930b2e2b9160e3401e8edee0013f15b0/invoke.js"></script>
+                </div>
+            </div>
+            
+            <!-- Ad Container 2 -->
+            <div class="ad-wrapper">
+                <div class="ad-banner">
+                    <div class="ad-placeholder">Advertisement</div>
+                    <script async="async" data-cfasync="false" src="//pl26796007.profitableratecpm.com/2881b726f708ce67580512a18676da29/invoke.js"></script>
+                    <div id="container-2881b726f708ce67580512a18676da29"></div>
+                </div>
             </div>
         </div>
         
@@ -947,6 +1047,11 @@
             
             <div class="withdraw-options">
                 <div class="withdraw-title">Withdraw RC Coins</div>
+                
+                <div class="withdrawal-notice">
+                    <h3><i class="fas fa-calendar-alt"></i> Withdrawals Coming Soon</h3>
+                    <p>Withdrawal functionality will be available in the first week of July!</p>
+                </div>
                 
                 <div class="withdraw-form">
                     <div class="form-group">
@@ -975,21 +1080,6 @@
                 </button>
             </div>
             
-            <!-- Ad Placement -->
-            <div class="ad-container">
-                <div class="ad-title">Advertisement</div>
-                <script type="text/javascript">
-                    atOptions = {
-                        'key' : '930b2e2b9160e3401e8edee0013f15b0',
-                        'format' : 'iframe',
-                        'height' : 60,
-                        'width' : 468,
-                        'params' : {}
-                    };
-                </script>
-                <script type="text/javascript" src="//www.highperformanceformat.com/930b2e2b9160e3401e8edee0013f15b0/invoke.js"></script>
-            </div>
-            
             <div class="referral-section" style="margin-top: 20px;">
                 <div class="referral-title">Withdrawal History</div>
                 <div style="text-align: center; color: #bbb; padding: 20px;">
@@ -1013,16 +1103,25 @@
                 <div class="task-list">
                     <div class="task-item">
                         <div class="task-info">
-                            <div class="task-name">Watch a Video Ad</div>
-                            <div class="task-reward">Reward: 500 RC ($0.50)</div>
+                            <div class="task-name">Watch a Video Ad (Unlimited)</div>
+                            <div class="task-reward">Reward: 2,500 RC ($2.50)</div>
                         </div>
                         <button class="task-btn" id="watch-ad-btn">Watch Ad</button>
                     </div>
                     
                     <div class="task-item">
                         <div class="task-info">
+                            <div class="task-name">Join Official Telegram</div>
+                            <div class="task-reward">Reward: 5,000 RC ($5.00)</div>
+                            <div class="task-reward">Link: https://t.me/ROLLERCOIN04</div>
+                        </div>
+                        <button class="task-btn" id="telegram-btn">Join</button>
+                    </div>
+                    
+                    <div class="task-item">
+                        <div class="task-info">
                             <div class="task-name">Visit Our Website</div>
-                            <div class="task-reward">Reward: 1,000 RC ($1.00)</div>
+                            <div class="task-reward">Reward: 3,000 RC ($3.00)</div>
                         </div>
                         <button class="task-btn" id="visit-website-btn">Visit</button>
                     </div>
@@ -1030,7 +1129,7 @@
                     <div class="task-item">
                         <div class="task-info">
                             <div class="task-name">Follow on Social Media</div>
-                            <div class="task-reward">Reward: 1,500 RC ($1.50)</div>
+                            <div class="task-reward">Reward: 4,000 RC ($4.00)</div>
                         </div>
                         <button class="task-btn" id="follow-social-btn">Follow</button>
                     </div>
@@ -1044,7 +1143,7 @@
                     <div class="task-item">
                         <div class="task-info">
                             <div class="task-name">Reach 10,000 Taps</div>
-                            <div class="task-reward">Reward: 10,000 RC ($10.00)</div>
+                            <div class="task-reward">Reward: 50,000 RC ($50.00)</div>
                             <div class="task-progress">
                                 <span>Progress: <span id="taps-progress">0</span>/10,000</span>
                                 <span><span id="taps-percent">0</span>%</span>
@@ -1058,10 +1157,10 @@
                     
                     <div class="task-item">
                         <div class="task-info">
-                            <div class="task-name">Earn 50,000 RC</div>
-                            <div class="task-reward">Reward: 5,000 RC ($5.00)</div>
+                            <div class="task-name">Earn 100,000 RC</div>
+                            <div class="task-reward">Reward: 25,000 RC ($25.00)</div>
                             <div class="task-progress">
-                                <span>Progress: <span id="earn-progress">0</span>/50,000</span>
+                                <span>Progress: <span id="earn-progress">0</span>/100,000</span>
                                 <span><span id="earn-percent">0</span>%</span>
                             </div>
                             <div class="progress-bar">
@@ -1084,8 +1183,8 @@
             
             <div class="referral-section">
                 <div class="referral-title">Refer Friends & Earn</div>
-                <p>Invite friends using your link and earn 10% of their earnings!</p>
-                <div class="referral-code" id="referral-code">https://rollercoin.com/?ref=RC-BEP20-7A3B9F</div>
+                <p>Invite friends using your unique referral link and earn 10% of their earnings!</p>
+                <div class="referral-code" id="referral-code">http://t.me/ROLLERCOIN04_BOT/RC04</div>
                 <button class="copy-btn" id="copy-btn">
                     <i class="fas fa-copy"></i> Copy Referral Link
                 </button>
@@ -1132,20 +1231,21 @@
         </div>
     </div>
     
-    <!-- Script before closing </body> tag -->
-    <script type='text/javascript' src='//pl26795990.profitableratecpm.com/45/78/44/4578440c5a3e8ed7c3b6e86d986c2d71.js'></script>
+    <!-- Third ad script -->
+    <script type='text/javascript' src='//pl26795987.profitableratecpm.com/0b/e3/64/0be3648a33d8f30e2fe3d699e8ab166a.js'></script>
     
     <script>
         // Game state
         const gameState = {
             rcBalance: 0,
-            perTap: 10,
+            perTap: 1000, // Changed to 1000 RC per tap
             totalTaps: 0,
             multiplier: 1,
             referralEarnings: 0,
             totalReferrals: 0,
             tasks: {
-                adWatched: false,
+                adWatched: 0, // Changed to track count instead of boolean
+                telegramJoined: false,
                 websiteVisited: false,
                 socialFollowed: false,
                 tapsAchievement: false,
@@ -1153,7 +1253,10 @@
             },
             referralCode: "",
             referredBy: "",
-            firstVisit: true
+            firstVisit: true,
+            tapStreak: 0,
+            bonusTimer: 10,
+            bonusActive: false
         };
         
         // DOM Elements
@@ -1179,9 +1282,12 @@
         const walletAddress = document.getElementById('wallet-address');
         const withdrawAmount = document.getElementById('withdraw-amount');
         const successMessage = document.getElementById('success-message');
+        const bonusCounter = document.getElementById('bonus-counter');
+        const bonusTimer = document.getElementById('bonus-timer');
         
         // Task elements
         const watchAdBtn = document.getElementById('watch-ad-btn');
+        const telegramBtn = document.getElementById('telegram-btn');
         const visitWebsiteBtn = document.getElementById('visit-website-btn');
         const followSocialBtn = document.getElementById('follow-social-btn');
         const tapsRewardBtn = document.getElementById('taps-reward-btn');
@@ -1237,7 +1343,7 @@
             }
             
             // Update referral code display
-            referralCodeEl.textContent = `https://rollercoin.com/?ref=RC-${gameState.referralCode}`;
+            referralCodeEl.textContent = `http://t.me/ROLLERCOIN04_BOT/RC04`;
             
             // Show referral modal for new users
             if (gameState.firstVisit) {
@@ -1248,6 +1354,9 @@
             
             // Set home screen as active
             showScreen('home');
+            
+            // Start bonus timer
+            startBonusTimer();
         }
         
         // Convert RC to dollars (1000 RC = $1.00)
@@ -1285,6 +1394,9 @@
             totalReferralsEl.textContent = gameState.totalReferrals;
             referralEarningsEl.textContent = `${gameState.referralEarnings.toLocaleString()} RC`;
             
+            // Update bonus counter
+            bonusCounter.textContent = `Bonus: ${gameState.tapStreak}/10 taps`;
+            
             // Update withdraw button state
             withdrawBtn.disabled = gameState.rcBalance < 1000;
             if (withdrawBtn.disabled) {
@@ -1299,12 +1411,32 @@
             updateTaskProgress();
         }
         
+        // Start bonus timer
+        function startBonusTimer() {
+            setInterval(() => {
+                if (gameState.bonusTimer > 0) {
+                    gameState.bonusTimer--;
+                    bonusTimer.textContent = `Bonus in: ${gameState.bonusTimer}s`;
+                } else {
+                    gameState.bonusTimer = 10;
+                    gameState.tapStreak = 0;
+                    bonusTimer.textContent = `Bonus available!`;
+                    setTimeout(() => {
+                        bonusTimer.textContent = `Bonus in: ${gameState.bonusTimer}s`;
+                    }, 2000);
+                }
+            }, 1000);
+        }
+        
         // Update task buttons based on completion status
         function updateTaskButtons() {
-            if (gameState.tasks.adWatched) {
-                watchAdBtn.textContent = "Completed";
-                watchAdBtn.classList.add('completed');
-                watchAdBtn.disabled = true;
+            // Watch Ad button doesn't get disabled since it's unlimited
+            watchAdBtn.innerHTML = `Watch Ad (${gameState.tasks.adWatched}x)`;
+            
+            if (gameState.tasks.telegramJoined) {
+                telegramBtn.textContent = "Completed";
+                telegramBtn.classList.add('completed');
+                telegramBtn.disabled = true;
             }
             
             if (gameState.tasks.websiteVisited) {
@@ -1348,13 +1480,13 @@
             }
             
             // Update earn achievement progress
-            const earnPercent = Math.min(100, (gameState.rcBalance / 50000) * 100);
+            const earnPercent = Math.min(100, (gameState.rcBalance / 100000) * 100);
             earnProgressEl.textContent = gameState.rcBalance.toLocaleString();
             earnPercentEl.textContent = earnPercent.toFixed(0);
             earnProgressBarEl.style.width = `${earnPercent}%`;
             
             // Enable claim button if achievement is reached
-            if (gameState.rcBalance >= 50000 && !gameState.tasks.earnAchievement) {
+            if (gameState.rcBalance >= 100000 && !gameState.tasks.earnAchievement) {
                 earnRewardBtn.disabled = false;
                 earnRewardBtn.textContent = "Claim Reward";
                 earnRewardBtn.classList.remove('completed');
@@ -1399,8 +1531,21 @@
         
         // Handle tap event
         function handleTap(e) {
-            // Calculate earnings
-            const earnings = gameState.perTap * gameState.multiplier;
+            // Calculate base earnings
+            let earnings = gameState.perTap * gameState.multiplier;
+            
+            // Increase tap streak
+            gameState.tapStreak++;
+            
+            // Check for bonus
+            if (gameState.tapStreak >= 10) {
+                earnings *= 2; // Double bonus
+                gameState.tapStreak = 0;
+                gameState.bonusTimer = 10;
+                showSuccessMessage("Double bonus activated! +" + earnings + " RC!");
+            }
+            
+            // Apply earnings
             gameState.rcBalance += earnings;
             gameState.totalTaps++;
             
@@ -1478,43 +1623,7 @@
         
         // Withdraw money
         function processWithdrawal() {
-            const amount = parseInt(withdrawAmount.value);
-            const method = withdrawMethod.value;
-            const address = walletAddress.value.trim();
-            
-            if (!address) {
-                showSuccessMessage('Please enter your wallet address');
-                return;
-            }
-            
-            if (!address.startsWith('0x') || address.length !== 42) {
-                showSuccessMessage('Please enter a valid BEP-20 wallet address');
-                return;
-            }
-            
-            if (amount < 1000) {
-                showSuccessMessage('Minimum withdrawal is 1,000 RC ($1.00)');
-                return;
-            }
-            
-            if (gameState.rcBalance < amount) {
-                showSuccessMessage('Insufficient RC balance');
-                return;
-            }
-            
-            // Calculate fee (1%)
-            const fee = Math.round(amount * 0.01);
-            const netAmount = amount - fee;
-            
-            // Process withdrawal
-            gameState.rcBalance -= amount;
-            
-            // Show success message
-            showSuccessMessage(`${netAmount.toLocaleString()} RC (${formatDollars(rcToDollars(netAmount))}) sent to your BEP-20 wallet! (Fee: ${fee} RC)`);
-            
-            // Update UI
-            updateUI();
-            saveGame();
+            showSuccessMessage('Withdrawals will be available in the first week of July!');
         }
         
         // Copy referral code
@@ -1537,61 +1646,71 @@
         
         // Complete task: Watch Ad
         function completeWatchAd() {
-            if (!gameState.tasks.adWatched) {
-                gameState.rcBalance += 500;
-                gameState.tasks.adWatched = true;
+            gameState.rcBalance += 2500;
+            gameState.tasks.adWatched++;
+            updateUI();
+            updateTaskButtons();
+            saveGame();
+            showSuccessMessage(`You earned 2,500 RC (${formatDollars(rcToDollars(2500))}) for watching an ad!`);
+        }
+        
+        // Complete task: Join Telegram
+        function completeTelegram() {
+            if (!gameState.tasks.telegramJoined) {
+                gameState.rcBalance += 5000;
+                gameState.tasks.telegramJoined = true;
                 updateUI();
                 updateTaskButtons();
                 saveGame();
-                showSuccessMessage(`You earned 500 RC (${formatDollars(rcToDollars(500))}) for watching an ad!`);
+                showSuccessMessage(`You earned 5,000 RC (${formatDollars(rcToDollars(5000))}) for joining our Telegram!`);
             }
         }
         
         // Complete task: Visit Website
         function completeVisitWebsite() {
             if (!gameState.tasks.websiteVisited) {
-                gameState.rcBalance += 1000;
+                gameState.rcBalance += 3000;
                 gameState.tasks.websiteVisited = true;
                 updateUI();
                 updateTaskButtons();
                 saveGame();
-                showSuccessMessage(`You earned 1,000 RC (${formatDollars(rcToDollars(1000))}) for visiting our website!`);
+                showSuccessMessage(`You earned 3,000 RC (${formatDollars(rcToDollars(3000))}) for visiting our website!`);
             }
         }
         
         // Complete task: Follow Social
         function completeFollowSocial() {
             if (!gameState.tasks.socialFollowed) {
-                gameState.rcBalance += 1500;
+                gameState.rcBalance += 4000;
                 gameState.tasks.socialFollowed = true;
                 updateUI();
                 updateTaskButtons();
                 saveGame();
-                showSuccessMessage(`You earned 1,500 RC (${formatDollars(rcToDollars(1500))}) for following us on social media!`);
+                showSuccessMessage(`You earned 4,000 RC (${formatDollars(rcToDollars(4000))}) for following us on social media!`);
             }
         }
         
         // Claim tap achievement reward
         function claimTapsAchievement() {
             if (gameState.totalTaps >= 10000 && !gameState.tasks.tapsAchievement) {
-                gameState.rcBalance += 10000;
+                gameState.rcBalance += 50000;
                 gameState.tasks.tapsAchievement = true;
                 updateUI();
                 updateTaskButtons();
                 saveGame();
-                showSuccessMessage(`Congratulations! You earned 10,000 RC (${formatDollars(rcToDollars(10000))}) for reaching 10,000 taps!`);
+                showSuccessMessage(`Congratulations! You earned 50,000 RC (${formatDollars(rcToDollars(50000))}) for reaching 10,000 taps!`);
             }
         }
         
         // Claim earn achievement reward
         function claimEarnAchievement() {
-            if (gameState.rcBalance >= 50000 && !gameState.tasks.earnAchievement) {
-                gameState.rcBalance += 5000;
+            if (gameState.rcBalance >= 100000 && !gameState.tasks.earnAchievement) {
+                gameState.rcBalance += 25000;
                 gameState.tasks.earnAchievement = true;
                 updateUI();
                 updateTaskButtons();
                 saveGame();
-                showSuccessMessage(`Congratulations! You earned 5,000 RC (${formatDollars(rcToDollars(5000))}) for earning 50,000 RC!`);
+                showSuccessMessage(`Congratulations! You earned 25,000 RC (${formatDollars(rcToDollars(25000))}) for earning 100,000 RC!`);
             }
         }
         
@@ -1653,6 +1772,7 @@
         
         // Task event listeners
         watchAdBtn.addEventListener('click', completeWatchAd);
+        telegramBtn.addEventListener('click', completeTelegram);
         visitWebsiteBtn.addEventListener('click', completeVisitWebsite);
         followSocialBtn.addEventListener('click', completeFollowSocial);
         tapsRewardBtn.addEventListener('click', claimTapsAchievement);
