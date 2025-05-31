@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roller Coin - Earn Crypto!</title>
+    <title>ROLLER COIN - Earn Crypto</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script type='text/javascript' src='//pl26795987.profitableratecpm.com/0b/e3/64/0be3648a33d8f30e2fe3d699e8ab166a.js'></script>
     <style>
         * {
             margin: 0;
@@ -14,12 +15,13 @@
         }
         
         body {
-            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             color: white;
             overflow-x: hidden;
+            background-attachment: fixed;
         }
         
         .container {
@@ -27,7 +29,7 @@
             width: 100%;
             margin: 0 auto;
             padding: 20px;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
@@ -43,59 +45,75 @@
             font-size: 2.5rem;
             font-weight: 800;
             color: #fff;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            text-shadow: 0 0 15px rgba(100, 255, 218, 0.5);
             letter-spacing: 1px;
-            background: linear-gradient(to right, #4ecca3, #f9b248, #4ecca3);
+            background: linear-gradient(to right, #64ffda, #5e60ce, #64ffda);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 5px;
         }
         
         .header p {
-            color: #ddd;
+            color: #bbb;
             font-size: 1rem;
             font-weight: 500;
         }
         
         /* Wallet Section */
         .wallet-section {
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.3);
             border-radius: 20px;
             padding: 20px;
             text-align: center;
             margin-bottom: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            border: 2px solid rgba(78, 204, 163, 0.5);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(100, 255, 218, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .wallet-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #5e60ce, #64ffda, #5e60ce);
+            animation: borderAnimation 3s infinite linear;
         }
         
         .wallet-title {
             font-size: 1.5rem;
-            color: #f9b248;
+            color: #64ffda;
             margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
         }
         
         .balance {
             font-size: 2.8rem;
             font-weight: bold;
-            color: #4ecca3;
-            text-shadow: 0 0 15px rgba(78, 204, 163, 0.7);
+            color: #fff;
+            text-shadow: 0 0 15px rgba(100, 255, 218, 0.7);
             margin-bottom: 5px;
+            letter-spacing: 1px;
         }
         
         .coin-balance {
             font-size: 1.2rem;
-            color: #f9b248;
+            color: #5e60ce;
             margin-bottom: 15px;
+            font-weight: 600;
         }
         
-        .btn {
-            background: linear-gradient(to right, #f9b248, #4ecca3);
+        .withdraw-btn {
+            background: linear-gradient(to right, #5e60ce, #64ffda);
             border: none;
             border-radius: 15px;
             padding: 15px 30px;
             font-size: 1.2rem;
             font-weight: 700;
-            color: #1a1a2e;
+            color: #0f0c29;
             cursor: pointer;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
@@ -103,16 +121,35 @@
             width: 100%;
             max-width: 300px;
             margin-top: 10px;
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
         }
         
-        .btn:hover {
+        .withdraw-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 20%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(25deg);
+            transition: all 0.4s;
+        }
+        
+        .withdraw-btn:hover::after {
+            left: 140%;
+        }
+        
+        .withdraw-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(249, 178, 72, 0.5);
+            box-shadow: 0 8px 20px rgba(94, 96, 206, 0.5);
         }
         
         /* Tap Area */
         .tap-area {
-            background: linear-gradient(45deg, #0f3460, #1a1a2e);
+            background: linear-gradient(45deg, #1a1a2e, #16213e);
             height: 320px;
             border-radius: 20px;
             display: flex;
@@ -122,7 +159,7 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
-            border: 4px solid rgba(78, 204, 163, 0.5);
+            border: 4px solid rgba(100, 255, 218, 0.3);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
         
@@ -138,12 +175,12 @@
             animation: bounce 1.5s infinite;
             border-radius: 50%;
             overflow: hidden;
-            border: 5px solid #f9b248;
-            box-shadow: 0 0 30px rgba(249, 178, 72, 0.7);
+            border: 5px solid #64ffda;
+            box-shadow: 0 0 30px rgba(100, 255, 218, 0.7);
             display: flex;
             justify-content: center;
             align-items: center;
-            background: white;
+            background: linear-gradient(135deg, #0f0c29, #302b63);
             padding: 20px;
         }
         
@@ -152,14 +189,15 @@
             font-weight: bold;
             text-align: center;
             line-height: 1.2;
-            color: #0f3460;
+            color: #64ffda;
+            text-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
         }
         
         .money-animation {
             position: absolute;
             font-size: 1.8rem;
             font-weight: bold;
-            color: #f9b248;
+            color: #64ffda;
             z-index: 3;
             pointer-events: none;
             text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
@@ -172,19 +210,23 @@
             justify-content: space-between;
             margin: 20px 0;
             padding: 15px;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.3);
             border-radius: 15px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
         .stat-item {
             text-align: center;
             flex: 1;
+            padding: 10px;
         }
         
         .stat-item .value {
             font-size: 1.5rem;
             font-weight: bold;
-            color: #4ecca3;
+            color: #64ffda;
+            text-shadow: 0 0 8px rgba(100, 255, 218, 0.3);
         }
         
         .stat-item .label {
@@ -194,19 +236,32 @@
         
         /* Withdraw Options */
         .withdraw-options {
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.3);
             border-radius: 20px;
             padding: 20px;
             margin-top: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            border: 2px solid rgba(78, 204, 163, 0.5);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(100, 255, 218, 0.3);
+            position: relative;
+        }
+        
+        .withdraw-options::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #5e60ce, #64ffda, #5e60ce);
+            animation: borderAnimation 3s infinite linear;
         }
         
         .withdraw-title {
             font-size: 1.5rem;
-            color: #f9b248;
+            color: #64ffda;
             margin-bottom: 15px;
             text-align: center;
+            text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
         }
         
         .withdraw-form {
@@ -220,7 +275,7 @@
         .form-group label {
             display: block;
             margin-bottom: 8px;
-            color: #4ecca3;
+            color: #64ffda;
             font-weight: 600;
         }
         
@@ -230,87 +285,128 @@
             padding: 12px 15px;
             border-radius: 10px;
             border: none;
-            background: rgba(255, 255, 255, 0.9);
             font-size: 1rem;
+            background: rgba(10, 10, 35, 0.7);
+            color: white;
+            border: 1px solid rgba(100, 255, 218, 0.3);
+        }
+        
+        .form-group input::placeholder {
+            color: #bbb;
         }
         
         .usdt-info {
             font-size: 0.85rem;
-            color: #f9b248;
+            color: #5e60ce;
             margin-top: 10px;
             line-height: 1.4;
             text-align: center;
+            font-weight: 600;
         }
         
         .coin-earning {
-            background: rgba(78, 204, 163, 0.2);
+            background: rgba(100, 255, 218, 0.2);
             padding: 5px 10px;
             border-radius: 10px;
             display: inline-block;
             margin: 5px 0;
             font-weight: 600;
-            color: #f9b248;
+            color: #64ffda;
         }
         
         /* Referral Section */
-        .section {
-            background: rgba(0, 0, 0, 0.4);
+        .referral-section {
+            background: rgba(0, 0, 0, 0.3);
             border-radius: 20px;
             padding: 20px;
             margin-top: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            border: 2px solid rgba(78, 204, 163, 0.5);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(100, 255, 218, 0.3);
+            position: relative;
         }
         
-        .section-title {
+        .referral-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #5e60ce, #64ffda, #5e60ce);
+            animation: borderAnimation 3s infinite linear;
+        }
+        
+        .referral-title {
             font-size: 1.5rem;
-            color: #f9b248;
+            color: #64ffda;
             margin-bottom: 15px;
             text-align: center;
+            text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
         }
         
         .referral-code {
-            background: rgba(78, 204, 163, 0.1);
+            background: rgba(100, 255, 218, 0.1);
             border-radius: 10px;
             padding: 15px;
             text-align: center;
             font-size: 1.1rem;
             font-weight: bold;
-            color: #4ecca3;
+            color: #64ffda;
             margin: 15px 0;
-            border: 1px dashed #4ecca3;
+            border: 1px dashed #64ffda;
             word-break: break-all;
+            font-family: monospace;
         }
         
         .copy-btn {
-            background: linear-gradient(to right, #f9b248, #4ecca3);
+            background: linear-gradient(to right, #5e60ce, #64ffda);
             border: none;
             border-radius: 10px;
             padding: 12px 20px;
             font-size: 1rem;
             font-weight: 600;
-            color: #1a1a2e;
+            color: #0f0c29;
             cursor: pointer;
             transition: all 0.3s;
             width: 100%;
             margin-top: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .copy-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 20%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(25deg);
+            transition: all 0.4s;
+        }
+        
+        .copy-btn:hover::after {
+            left: 140%;
         }
         
         .copy-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(249, 178, 72, 0.5);
+            box-shadow: 0 5px 15px rgba(94, 96, 206, 0.5);
         }
         
         /* Bottom Navigation */
         .bottom-nav {
             display: flex;
             justify-content: space-around;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.3);
             border-radius: 20px;
             padding: 15px 10px;
             margin-top: auto;
             position: relative;
             z-index: 2;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(100, 255, 218, 0.2);
         }
         
         .nav-item {
@@ -321,21 +417,22 @@
             cursor: pointer;
             flex: 1;
             margin: 0 5px;
+            position: relative;
         }
         
         .nav-item.active {
-            background: linear-gradient(135deg, #f9b248, #4ecca3);
-            box-shadow: 0 5px 10px rgba(249, 178, 72, 0.5);
+            background: linear-gradient(135deg, #5e60ce, #64ffda);
+            box-shadow: 0 5px 10px rgba(94, 96, 206, 0.5);
         }
         
         .nav-item.active i,
         .nav-item.active span {
-            color: #1a1a2e;
+            color: #0f0c29;
         }
         
         .nav-item i {
             font-size: 1.5rem;
-            color: #4ecca3;
+            color: #64ffda;
             margin-bottom: 5px;
             transition: all 0.3s ease;
         }
@@ -343,13 +440,13 @@
         .nav-item span {
             font-size: 0.9rem;
             font-weight: 600;
-            color: #ddd;
+            color: #bbb;
             display: block;
             transition: all 0.3s ease;
         }
         
         .nav-item:hover {
-            background: rgba(78, 204, 163, 0.2);
+            background: rgba(100, 255, 218, 0.2);
         }
         
         /* Animations */
@@ -364,13 +461,18 @@
             50% { transform: translateY(-15px); }
         }
         
+        @keyframes borderAnimation {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+        
         .coin {
             position: absolute;
             width: 30px;
             height: 30px;
-            background: radial-gradient(circle at 30% 30%, #f9b248, #e67e22);
+            background: radial-gradient(circle at 30% 30%, #64ffda, #5e60ce);
             border-radius: 50%;
-            box-shadow: 0 0 10px #f9b248;
+            box-shadow: 0 0 10px #64ffda;
             pointer-events: none;
             opacity: 0;
             z-index: 1;
@@ -398,10 +500,11 @@
             color: white;
             padding: 15px 25px;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.3);
             z-index: 1000;
             display: none;
             animation: slideIn 0.3s, fadeOut 0.5s 2s forwards;
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
         
         @keyframes slideIn {
@@ -414,138 +517,265 @@
             to { opacity: 0; }
         }
         
-        /* Ad Section */
-        .ad-section {
-            background: rgba(0, 0, 0, 0.4);
+        /* Tasks Section */
+        .tasks-section {
+            background: rgba(0, 0, 0, 0.3);
             border-radius: 20px;
             padding: 20px;
             margin-top: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            border: 2px solid rgba(78, 204, 163, 0.5);
-            text-align: center;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(100, 255, 218, 0.3);
+            position: relative;
         }
         
-        .ad-title {
-            font-size: 1.5rem;
-            color: #f9b248;
-            margin-bottom: 15px;
-        }
-        
-        .ad-description {
-            color: #ddd;
-            margin-bottom: 20px;
-            font-size: 1rem;
-        }
-        
-        .ad-btn {
-            background: linear-gradient(to right, #f9b248, #4ecca3);
-            border: none;
-            border-radius: 15px;
-            padding: 15px 30px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #1a1a2e;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            display: inline-block;
+        .tasks-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            max-width: 300px;
-            margin: 10px auto;
+            height: 5px;
+            background: linear-gradient(to right, #5e60ce, #64ffda, #5e60ce);
+            animation: borderAnimation 3s infinite linear;
         }
         
-        .ad-btn:hover {
+        .tasks-title {
+            font-size: 1.5rem;
+            color: #64ffda;
+            margin-bottom: 15px;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+        }
+        
+        .task-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .task-item {
+            background: rgba(10, 10, 35, 0.5);
+            border-radius: 15px;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            transition: all 0.3s;
+        }
+        
+        .task-item:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(249, 178, 72, 0.5);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
         }
         
-        .ad-btn.disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
+        .task-info {
+            flex: 1;
         }
         
-        .ad-reward {
-            font-size: 1.2rem;
-            color: #f9b248;
-            margin: 15px 0;
-            font-weight: bold;
+        .task-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: #64ffda;
         }
         
-        /* Ad Simulation */
-        .ad-overlay {
+        .task-reward {
+            font-size: 0.9rem;
+            color: #5e60ce;
+            font-weight: 600;
+        }
+        
+        .task-btn {
+            background: linear-gradient(to right, #5e60ce, #64ffda);
+            border: none;
+            border-radius: 10px;
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #0f0c29;
+            cursor: pointer;
+            transition: all 0.3s;
+            min-width: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .task-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 20%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(25deg);
+            transition: all 0.4s;
+        }
+        
+        .task-btn:hover::after {
+            left: 140%;
+        }
+        
+        .task-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(94, 96, 206, 0.5);
+        }
+        
+        .task-btn.completed {
+            background: #10ac84;
+            cursor: default;
+        }
+        
+        .task-btn.completed::after {
+            display: none;
+        }
+        
+        .task-btn.completed::before {
+            content: "✓ ";
+        }
+        
+        /* Task Progress */
+        .task-progress {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #bbb;
+        }
+        
+        .progress-bar {
+            height: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, #5e60ce, #64ffda);
+            border-radius: 10px;
+        }
+        
+        /* Crypto Elements */
+        .crypto-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 10000;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            display: none;
+            z-index: -1;
+            opacity: 0.1;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(100, 255, 218, 0.3) 0px, transparent 50px),
+                radial-gradient(circle at 90% 40%, rgba(94, 96, 206, 0.3) 0px, transparent 70px),
+                radial-gradient(circle at 50% 80%, rgba(100, 255, 218, 0.3) 0px, transparent 60px);
+            animation: float 30s infinite linear;
         }
         
-        .ad-container {
-            width: 90%;
-            max-width: 500px;
-            background: #1a1a2e;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 0 30px rgba(78, 204, 163, 0.5);
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(-10px, 10px); }
+            50% { transform: translate(0, 20px); }
+            75% { transform: translate(10px, 10px); }
+            100% { transform: translate(0, 0); }
         }
         
-        .ad-header {
-            background: #0f3460;
-            padding: 15px;
-            text-align: center;
-            color: #f9b248;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-        
-        .ad-content {
-            height: 300px;
-            background: #16213e;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-        
-        .ad-content i {
-            font-size: 4rem;
-            color: #f9b248;
-            margin-bottom: 20px;
-        }
-        
-        .ad-timer {
-            font-size: 1.5rem;
-            color: #4ecca3;
-            margin: 20px 0;
-        }
-        
-        .ad-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-        }
-        
-        .progress-bar {
+        /* Referral Modal */
+        .referral-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 10px;
-            background: #0f3460;
+            height: 100%;
+            background: rgba(15, 12, 41, 0.95);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            backdrop-filter: blur(5px);
         }
         
-        .progress {
-            height: 100%;
-            width: 0%;
-            background: #4ecca3;
-            transition: width 0.1s linear;
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border-radius: 20px;
+            padding: 30px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(100, 255, 218, 0.3);
+            position: relative;
+        }
+        
+        .modal-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #5e60ce, #64ffda, #5e60ce);
+            animation: borderAnimation 3s infinite linear;
+        }
+        
+        .modal-title {
+            font-size: 1.8rem;
+            color: #64ffda;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+        }
+        
+        .modal-subtitle {
+            color: #bbb;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+        
+        .referral-input {
+            width: 100%;
+            padding: 15px;
+            border-radius: 12px;
+            background: rgba(10, 10, 35, 0.7);
+            border: 2px solid #64ffda;
+            color: white;
+            font-size: 1.1rem;
+            text-align: center;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .referral-input::placeholder {
+            color: #5e60ce;
+            letter-spacing: normal;
+        }
+        
+        .modal-btn {
+            background: linear-gradient(to right, #5e60ce, #64ffda);
+            border: none;
+            border-radius: 12px;
+            padding: 15px 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f0c29;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            margin: 10px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .modal-btn.skip {
+            background: transparent;
+            color: #bbb;
+            border: 2px solid #5e60ce;
+        }
+        
+        .modal-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(94, 96, 206, 0.5);
         }
         
         /* Responsive adjustments */
@@ -570,40 +800,57 @@
             .roller-coin-text {
                 font-size: 1.5rem;
             }
+            
+            .balance {
+                font-size: 2.2rem;
+            }
+            
+            .task-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .task-btn {
+                margin-top: 10px;
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="crypto-bg"></div>
+    
     <div class="success-message" id="success-message">
         <i class="fas fa-check-circle"></i> Operation completed successfully!
     </div>
 
-    <!-- Ad Simulation Overlay -->
-    <div class="ad-overlay" id="ad-overlay">
-        <div class="ad-close" id="ad-close">
-            <i class="fas fa-times"></i>
-        </div>
-        <div class="ad-container">
-            <div class="ad-header">
-                Advertisement - Earn 1000 RC Coins!
-            </div>
-            <div class="progress-bar">
-                <div class="progress" id="ad-progress"></div>
-            </div>
-            <div class="ad-content">
-                <i class="fas fa-ad"></i>
-                <h3>Roller Coin Premium Offer</h3>
-                <p>Watch this ad to earn 1000 RC coins!</p>
-                <div class="ad-timer" id="ad-timer">5</div>
-                <p>Please watch until the end to receive your reward</p>
-            </div>
+    <!-- Referral Modal -->
+    <div class="referral-modal" id="referral-modal">
+        <div class="modal-content">
+            <h2 class="modal-title">Welcome to Roller Coin!</h2>
+            <p class="modal-subtitle">Enter a referral code to get 1,000 RC bonus ($1.00)</p>
+            
+            <input type="text" class="referral-input" id="referral-input" 
+                   placeholder="XXXXXX" maxlength="6">
+            
+            <button class="modal-btn" id="submit-referral">
+                <i class="fas fa-check-circle"></i> Apply Referral Code
+            </button>
+            
+            <button class="modal-btn skip" id="skip-referral">
+                <i class="fas fa-forward"></i> Skip & Continue
+            </button>
+            
+            <p style="margin-top: 20px; color: #5e60ce;">
+                You can enter a referral code later in settings
+            </p>
         </div>
     </div>
 
     <div class="container">
         <div class="header">
             <h1 id="screen-title">ROLLER COIN</h1>
-            <p id="screen-subtitle">Tap the coin to earn RC coins!</p>
+            <p id="screen-subtitle">Tap the coin to earn RC coins! (1000 RC = $1.00)</p>
         </div>
         
         <!-- Home Screen -->
@@ -612,7 +859,7 @@
                 <div class="wallet-title">Your RC Balance</div>
                 <div class="balance" id="balance">0 RC</div>
                 <div class="coin-balance" id="coin-balance">$0.00</div>
-                <button class="btn" id="withdraw-btn">
+                <button class="withdraw-btn" id="withdraw-btn">
                     <i class="fas fa-wallet"></i> Withdraw Now
                 </button>
             </div>
@@ -628,7 +875,7 @@
             <div class="stats">
                 <div class="stat-item">
                     <div class="value" id="per-tap">10 RC</div>
-                    <div class="label">Per Tap</div>
+                    <div class="label">Per Tap ($0.01)</div>
                 </div>
                 <div class="stat-item">
                     <div class="value" id="total-taps">0</div>
@@ -638,16 +885,6 @@
                     <div class="value" id="multiplier">1x</div>
                     <div class="label">Multiplier</div>
                 </div>
-            </div>
-            
-            <div class="ad-section">
-                <div class="ad-title">Watch Ads & Earn</div>
-                <div class="ad-description">Watch a short video ad and earn 1,000 RC coins instantly!</div>
-                <div class="ad-reward">+1,000 RC per ad</div>
-                <button class="ad-btn" id="watch-ad-btn">
-                    <i class="fas fa-ad"></i> Watch Ad Now
-                </button>
-                <p class="usdt-info">Available every 30 seconds</p>
             </div>
         </div>
         
@@ -666,37 +903,109 @@
                     <div class="form-group">
                         <label for="withdraw-method"><i class="fas fa-coins"></i> Withdrawal Method</label>
                         <select id="withdraw-method">
-                            <option value="bnb">BNB Smart Chain</option>
-                            <option value="usdd">USDD TRC-20</option>
-                            <option value="trx">TRX</option>
-                            <option value="btc">Bitcoin</option>
-                            <option value="eth">Ethereum</option>
+                            <option value="bep20" selected>BNB Smart Chain (BEP-20)</option>
                         </select>
                     </div>
                     
                     <div class="form-group">
-                        <label for="wallet-address"><i class="fas fa-wallet"></i> Wallet Address</label>
-                        <input type="text" id="wallet-address" placeholder="Enter your wallet address">
+                        <label for="wallet-address"><i class="fab fa-btc"></i> Wallet Address</label>
+                        <input type="text" id="wallet-address" placeholder="Enter your BEP-20 wallet address">
                     </div>
                     
                     <div class="form-group">
                         <label for="withdraw-amount"><i class="fas fa-money-bill-wave"></i> Amount (RC)</label>
-                        <input type="number" id="withdraw-amount" value="10000" min="10000">
+                        <input type="number" id="withdraw-amount" value="1000" min="1000">
                     </div>
                     
-                    <p class="usdt-info">Minimum withdrawal: 10,000 RC ($1.00)</p>
+                    <p class="usdt-info">Minimum withdrawal: 1,000 RC ($1.00)</p>
+                    <p class="usdt-info">Withdrawal fee: 1% (deducted from amount)</p>
                 </div>
                 
-                <button class="btn" id="withdraw-now-btn" style="margin-top: 20px;">
+                <button class="withdraw-btn" id="withdraw-now-btn" style="margin-top: 20px;">
                     <i class="fas fa-paper-plane"></i> Process Withdrawal
                 </button>
             </div>
             
-            <div class="section" style="margin-top: 20px;">
-                <div class="section-title">Withdrawal History</div>
+            <div class="referral-section" style="margin-top: 20px;">
+                <div class="referral-title">Withdrawal History</div>
                 <div style="text-align: center; color: #bbb; padding: 20px;">
                     <i class="fas fa-history" style="font-size: 2rem; margin-bottom: 10px;"></i>
                     <p>No withdrawal history yet</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tasks Screen -->
+        <div class="screen" id="tasks-screen">
+            <div class="wallet-section">
+                <div class="wallet-title">Available Tasks</div>
+                <div class="balance" id="tasks-balance">Earn RC Coins</div>
+                <div class="coin-balance" id="tasks-coin-balance">Complete tasks for rewards!</div>
+            </div>
+            
+            <div class="tasks-section">
+                <div class="tasks-title">Daily Tasks</div>
+                
+                <div class="task-list">
+                    <div class="task-item">
+                        <div class="task-info">
+                            <div class="task-name">Watch a Video Ad</div>
+                            <div class="task-reward">Reward: 500 RC ($0.50)</div>
+                        </div>
+                        <button class="task-btn" id="watch-ad-btn">Watch Ad</button>
+                    </div>
+                    
+                    <div class="task-item">
+                        <div class="task-info">
+                            <div class="task-name">Visit Our Website</div>
+                            <div class="task-reward">Reward: 1,000 RC ($1.00)</div>
+                        </div>
+                        <button class="task-btn" id="visit-website-btn">Visit</button>
+                    </div>
+                    
+                    <div class="task-item">
+                        <div class="task-info">
+                            <div class="task-name">Follow on Social Media</div>
+                            <div class="task-reward">Reward: 1,500 RC ($1.50)</div>
+                        </div>
+                        <button class="task-btn" id="follow-social-btn">Follow</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tasks-section">
+                <div class="tasks-title">Achievement Tasks</div>
+                
+                <div class="task-list">
+                    <div class="task-item">
+                        <div class="task-info">
+                            <div class="task-name">Reach 10,000 Taps</div>
+                            <div class="task-reward">Reward: 10,000 RC ($10.00)</div>
+                            <div class="task-progress">
+                                <span>Progress: <span id="taps-progress">0</span>/10,000</span>
+                                <span><span id="taps-percent">0</span>%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="taps-progress-bar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <button class="task-btn" id="taps-reward-btn" disabled>Claim</button>
+                    </div>
+                    
+                    <div class="task-item">
+                        <div class="task-info">
+                            <div class="task-name">Earn 50,000 RC</div>
+                            <div class="task-reward">Reward: 5,000 RC ($5.00)</div>
+                            <div class="task-progress">
+                                <span>Progress: <span id="earn-progress">0</span>/50,000</span>
+                                <span><span id="earn-percent">0</span>%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="earn-progress-bar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <button class="task-btn" id="earn-reward-btn" disabled>Claim</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -709,10 +1018,10 @@
                 <div class="coin-balance" id="referral-coin-balance">$0.00</div>
             </div>
             
-            <div class="section">
-                <div class="section-title">Refer Friends & Earn</div>
+            <div class="referral-section">
+                <div class="referral-title">Refer Friends & Earn</div>
                 <p>Invite friends using your link and earn 10% of their earnings!</p>
-                <div class="referral-code" id="referral-code">https://rollercoin.com/?ref=RC-7A3B9F</div>
+                <div class="referral-code" id="referral-code">https://rollercoin.com/?ref=RC-BEP20-7A3B9F</div>
                 <button class="copy-btn" id="copy-btn">
                     <i class="fas fa-copy"></i> Copy Referral Link
                 </button>
@@ -729,8 +1038,8 @@
                 </div>
             </div>
             
-            <div class="section" style="margin-top: 20px;">
-                <div class="section-title">Your Referrals</div>
+            <div class="referral-section" style="margin-top: 20px;">
+                <div class="referral-title">Your Referrals</div>
                 <div style="text-align: center; color: #bbb; padding: 20px;">
                     <i class="fas fa-users" style="font-size: 2rem; margin-bottom: 10px;"></i>
                     <p>No referrals yet</p>
@@ -748,6 +1057,10 @@
                 <i class="fas fa-wallet"></i>
                 <span>Withdraw</span>
             </div>
+            <div class="nav-item" data-screen="tasks">
+                <i class="fas fa-tasks"></i>
+                <span>Tasks</span>
+            </div>
             <div class="nav-item" data-screen="referral">
                 <i class="fas fa-users"></i>
                 <span>Refer</span>
@@ -764,7 +1077,16 @@
             multiplier: 1,
             referralEarnings: 0,
             totalReferrals: 0,
-            lastAdWatch: 0
+            tasks: {
+                adWatched: false,
+                websiteVisited: false,
+                socialFollowed: false,
+                tapsAchievement: false,
+                earnAchievement: false
+            },
+            referralCode: "",
+            referredBy: "",
+            firstVisit: true
         };
         
         // DOM Elements
@@ -790,53 +1112,105 @@
         const walletAddress = document.getElementById('wallet-address');
         const withdrawAmount = document.getElementById('withdraw-amount');
         const successMessage = document.getElementById('success-message');
+        
+        // Task elements
         const watchAdBtn = document.getElementById('watch-ad-btn');
-        const adOverlay = document.getElementById('ad-overlay');
-        const adClose = document.getElementById('ad-close');
-        const adProgress = document.getElementById('ad-progress');
-        const adTimer = document.getElementById('ad-timer');
+        const visitWebsiteBtn = document.getElementById('visit-website-btn');
+        const followSocialBtn = document.getElementById('follow-social-btn');
+        const tapsRewardBtn = document.getElementById('taps-reward-btn');
+        const earnRewardBtn = document.getElementById('earn-reward-btn');
+        const tapsProgressEl = document.getElementById('taps-progress');
+        const tapsPercentEl = document.getElementById('taps-percent');
+        const tapsProgressBarEl = document.getElementById('taps-progress-bar');
+        const earnProgressEl = document.getElementById('earn-progress');
+        const earnPercentEl = document.getElementById('earn-percent');
+        const earnProgressBarEl = document.getElementById('earn-progress-bar');
+        
+        // Referral modal elements
+        const referralModal = document.getElementById('referral-modal');
+        const referralInput = document.getElementById('referral-input');
+        const submitReferralBtn = document.getElementById('submit-referral');
+        const skipReferralBtn = document.getElementById('skip-referral');
         
         // Screen elements
         const screens = {
             home: document.getElementById('home-screen'),
             withdraw: document.getElementById('withdraw-screen'),
+            tasks: document.getElementById('tasks-screen'),
             referral: document.getElementById('referral-screen')
         };
         
         // Nav items
         const navItems = document.querySelectorAll('.nav-item');
         
+        // Generate a random 6-digit alphanumeric code
+        function generateReferralCode() {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let result = '';
+            for (let i = 0; i < 6; i++) {
+                result += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return result;
+        }
+        
         // Initialize game
         function initGame() {
-            updateUI();
-            
             // Load saved game if exists
             const savedGame = localStorage.getItem('rollerCoinGame');
             if (savedGame) {
                 const parsed = JSON.parse(savedGame);
                 Object.assign(gameState, parsed);
                 updateUI();
+                updateTaskButtons();
+                gameState.firstVisit = false;
+            } else {
+                // First time user - generate referral code
+                gameState.referralCode = generateReferralCode();
+                gameState.firstVisit = true;
+            }
+            
+            // Update referral code display
+            referralCodeEl.textContent = `https://rollercoin.com/?ref=RC-${gameState.referralCode}`;
+            
+            // Show referral modal for new users
+            if (gameState.firstVisit) {
+                referralModal.style.display = 'flex';
+            } else {
+                referralModal.style.display = 'none';
             }
             
             // Set home screen as active
             showScreen('home');
-            
-            // Start ad button state updater
-            setInterval(updateAdButton, 1000);
+        }
+        
+        // Convert RC to dollars (1000 RC = $1.00)
+        function rcToDollars(rc) {
+            return rc / 1000;
+        }
+        
+        // Format dollar amount
+        function formatDollars(amount) {
+            return amount.toLocaleString('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
         }
         
         // Update UI with current game state
         function updateUI() {
-            const dollars = gameState.rcBalance / 10000;
+            const dollars = rcToDollars(gameState.rcBalance);
             
             balanceEl.textContent = `${gameState.rcBalance.toLocaleString()} RC`;
-            coinBalanceEl.textContent = `$${dollars.toFixed(2)}`;
+            coinBalanceEl.textContent = formatDollars(dollars);
             
             withdrawBalanceEl.textContent = `${gameState.rcBalance.toLocaleString()} RC`;
-            withdrawCoinBalanceEl.textContent = `$${dollars.toFixed(2)}`;
+            withdrawCoinBalanceEl.textContent = formatDollars(dollars);
             
+            const referralDollars = rcToDollars(gameState.referralEarnings);
             referralBalanceEl.textContent = `${gameState.referralEarnings.toLocaleString()} RC`;
-            referralCoinBalanceEl.textContent = `$${(gameState.referralEarnings / 10000).toFixed(2)}`;
+            referralCoinBalanceEl.textContent = formatDollars(referralDollars);
             
             perTapEl.textContent = `${gameState.perTap} RC`;
             totalTapsEl.textContent = gameState.totalTaps.toLocaleString();
@@ -845,7 +1219,7 @@
             referralEarningsEl.textContent = `${gameState.referralEarnings.toLocaleString()} RC`;
             
             // Update withdraw button state
-            withdrawBtn.disabled = gameState.rcBalance < 10000;
+            withdrawBtn.disabled = gameState.rcBalance < 1000;
             if (withdrawBtn.disabled) {
                 withdrawBtn.style.opacity = '0.6';
                 withdrawBtn.style.cursor = 'not-allowed';
@@ -853,21 +1227,70 @@
                 withdrawBtn.style.opacity = '1';
                 withdrawBtn.style.cursor = 'pointer';
             }
+            
+            // Update task progress
+            updateTaskProgress();
         }
         
-        // Update ad button state
-        function updateAdButton() {
-            const now = Date.now();
-            const canWatchAd = now - gameState.lastAdWatch > 30000; // 30 seconds cooldown
+        // Update task buttons based on completion status
+        function updateTaskButtons() {
+            if (gameState.tasks.adWatched) {
+                watchAdBtn.textContent = "Completed";
+                watchAdBtn.classList.add('completed');
+                watchAdBtn.disabled = true;
+            }
             
-            watchAdBtn.disabled = !canWatchAd;
-            if (watchAdBtn.disabled) {
-                watchAdBtn.classList.add('disabled');
-                const secondsLeft = Math.ceil((30000 - (now - gameState.lastAdWatch)) / 1000);
-                watchAdBtn.innerHTML = `<i class="fas fa-clock"></i> Try again in ${secondsLeft}s`;
-            } else {
-                watchAdBtn.classList.remove('disabled');
-                watchAdBtn.innerHTML = `<i class="fas fa-ad"></i> Watch Ad Now`;
+            if (gameState.tasks.websiteVisited) {
+                visitWebsiteBtn.textContent = "Completed";
+                visitWebsiteBtn.classList.add('completed');
+                visitWebsiteBtn.disabled = true;
+            }
+            
+            if (gameState.tasks.socialFollowed) {
+                followSocialBtn.textContent = "Completed";
+                followSocialBtn.classList.add('completed');
+                followSocialBtn.disabled = true;
+            }
+            
+            if (gameState.tasks.tapsAchievement) {
+                tapsRewardBtn.textContent = "Completed";
+                tapsRewardBtn.classList.add('completed');
+                tapsRewardBtn.disabled = true;
+            }
+            
+            if (gameState.tasks.earnAchievement) {
+                earnRewardBtn.textContent = "Completed";
+                earnRewardBtn.classList.add('completed');
+                earnRewardBtn.disabled = true;
+            }
+        }
+        
+        // Update task progress bars
+        function updateTaskProgress() {
+            // Update tap achievement progress
+            const tapsPercent = Math.min(100, (gameState.totalTaps / 10000) * 100);
+            tapsProgressEl.textContent = gameState.totalTaps.toLocaleString();
+            tapsPercentEl.textContent = tapsPercent.toFixed(0);
+            tapsProgressBarEl.style.width = `${tapsPercent}%`;
+            
+            // Enable claim button if achievement is reached
+            if (gameState.totalTaps >= 10000 && !gameState.tasks.tapsAchievement) {
+                tapsRewardBtn.disabled = false;
+                tapsRewardBtn.textContent = "Claim Reward";
+                tapsRewardBtn.classList.remove('completed');
+            }
+            
+            // Update earn achievement progress
+            const earnPercent = Math.min(100, (gameState.rcBalance / 50000) * 100);
+            earnProgressEl.textContent = gameState.rcBalance.toLocaleString();
+            earnPercentEl.textContent = earnPercent.toFixed(0);
+            earnProgressBarEl.style.width = `${earnPercent}%`;
+            
+            // Enable claim button if achievement is reached
+            if (gameState.rcBalance >= 50000 && !gameState.tasks.earnAchievement) {
+                earnRewardBtn.disabled = false;
+                earnRewardBtn.textContent = "Claim Reward";
+                earnRewardBtn.classList.remove('completed');
             }
         }
         
@@ -890,11 +1313,15 @@
             switch(screenName) {
                 case 'home':
                     screenTitle.textContent = 'ROLLER COIN';
-                    screenSubtitle.textContent = 'Tap the coin to earn RC coins!';
+                    screenSubtitle.textContent = 'Tap the coin to earn RC coins! (1000 RC = $1.00)';
                     break;
                 case 'withdraw':
                     screenTitle.textContent = 'Withdraw RC';
-                    screenSubtitle.textContent = 'Withdraw your RC coins to your wallet';
+                    screenSubtitle.textContent = 'Withdraw to BEP-20 Wallet';
+                    break;
+                case 'tasks':
+                    screenTitle.textContent = 'Tasks';
+                    screenSubtitle.textContent = 'Complete tasks to earn RC';
                     break;
                 case 'referral':
                     screenTitle.textContent = 'Refer & Earn';
@@ -925,7 +1352,7 @@
         function createMoneyAnimation(x, y, amount) {
             const moneyAnim = document.createElement('div');
             moneyAnim.className = 'money-animation';
-            moneyAnim.innerHTML = `<div class="coin-earning">+${amount} RC</div>`;
+            moneyAnim.innerHTML = `<div class="coin-earning">+${amount} RC (${formatDollars(rcToDollars(amount))})</div>`;
             
             // Position relative to tap area
             const tapRect = tapArea.getBoundingClientRect();
@@ -993,13 +1420,13 @@
                 return;
             }
             
-            if (address.length < 10) {
-                showSuccessMessage('Please enter a valid wallet address');
+            if (!address.startsWith('0x') || address.length !== 42) {
+                showSuccessMessage('Please enter a valid BEP-20 wallet address');
                 return;
             }
             
-            if (amount < 10000) {
-                showSuccessMessage('Minimum withdrawal is 10,000 RC ($1.00)');
+            if (amount < 1000) {
+                showSuccessMessage('Minimum withdrawal is 1,000 RC ($1.00)');
                 return;
             }
             
@@ -1008,17 +1435,15 @@
                 return;
             }
             
+            // Calculate fee (1%)
+            const fee = Math.round(amount * 0.01);
+            const netAmount = amount - fee;
+            
             // Process withdrawal
             gameState.rcBalance -= amount;
             
             // Show success message
-            const methodName = 
-                method === 'bnb' ? 'BNB Smart Chain' : 
-                method === 'usdd' ? 'USDD TRC-20' : 
-                method === 'trx' ? 'TRX' : 
-                method === 'btc' ? 'Bitcoin' : 'Ethereum';
-                
-            showSuccessMessage(`${amount.toLocaleString()} RC sent to your ${methodName} wallet!`);
+            showSuccessMessage(`${netAmount.toLocaleString()} RC (${formatDollars(rcToDollars(netAmount))}) sent to your BEP-20 wallet! (Fee: ${fee} RC)`);
             
             // Update UI
             updateUI();
@@ -1043,55 +1468,95 @@
                 });
         }
         
-        // Show ad and reward user
-        function watchAd() {
-            const now = Date.now();
-            if (now - gameState.lastAdWatch < 30000) { // 30 seconds cooldown
-                const secondsLeft = Math.ceil((30000 - (now - gameState.lastAdWatch)) / 1000);
-                showSuccessMessage(`Please wait ${secondsLeft} seconds before watching another ad`);
+        // Complete task: Watch Ad
+        function completeWatchAd() {
+            if (!gameState.tasks.adWatched) {
+                gameState.rcBalance += 500;
+                gameState.tasks.adWatched = true;
+                updateUI();
+                updateTaskButtons();
+                saveGame();
+                showSuccessMessage(`You earned 500 RC (${formatDollars(rcToDollars(500))}) for watching an ad!`);
+            }
+        }
+        
+        // Complete task: Visit Website
+        function completeVisitWebsite() {
+            if (!gameState.tasks.websiteVisited) {
+                gameState.rcBalance += 1000;
+                gameState.tasks.websiteVisited = true;
+                updateUI();
+                updateTaskButtons();
+                saveGame();
+                showSuccessMessage(`You earned 1,000 RC (${formatDollars(rcToDollars(1000))}) for visiting our website!`);
+            }
+        }
+        
+        // Complete task: Follow Social
+        function completeFollowSocial() {
+            if (!gameState.tasks.socialFollowed) {
+                gameState.rcBalance += 1500;
+                gameState.tasks.socialFollowed = true;
+                updateUI();
+                updateTaskButtons();
+                saveGame();
+                showSuccessMessage(`You earned 1,500 RC (${formatDollars(rcToDollars(1500))}) for following us on social media!`);
+            }
+        }
+        
+        // Claim tap achievement reward
+        function claimTapsAchievement() {
+            if (gameState.totalTaps >= 10000 && !gameState.tasks.tapsAchievement) {
+                gameState.rcBalance += 10000;
+                gameState.tasks.tapsAchievement = true;
+                updateUI();
+                updateTaskButtons();
+                saveGame();
+                showSuccessMessage(`Congratulations! You earned 10,000 RC (${formatDollars(rcToDollars(10000))}) for reaching 10,000 taps!`);
+            }
+        }
+        
+        // Claim earn achievement reward
+        function claimEarnAchievement() {
+            if (gameState.rcBalance >= 50000 && !gameState.tasks.earnAchievement) {
+                gameState.rcBalance += 5000;
+                gameState.tasks.earnAchievement = true;
+                updateUI();
+                updateTaskButtons();
+                saveGame();
+                showSuccessMessage(`Congratulations! You earned 5,000 RC (${formatDollars(rcToDollars(5000))}) for earning 50,000 RC!`);
+            }
+        }
+        
+        // Handle referral code submission
+        function submitReferral() {
+            const code = referralInput.value.trim().toUpperCase();
+            
+            if (code.length !== 6) {
+                showSuccessMessage("Please enter a valid 6-digit referral code");
                 return;
             }
             
-            // Show ad simulation
-            adOverlay.style.display = 'flex';
+            // Apply referral bonus
+            gameState.rcBalance += 1000;
+            gameState.referredBy = code;
             
-            // Reset ad timer
-            let timer = 5;
-            adTimer.textContent = timer;
-            adProgress.style.width = '0%';
+            // Hide modal
+            referralModal.style.display = 'none';
+            gameState.firstVisit = false;
             
-            // Start timer
-            const timerInterval = setInterval(() => {
-                timer--;
-                adTimer.textContent = timer;
-                
-                // Update progress bar
-                const progress = 100 - (timer * 20);
-                adProgress.style.width = `${progress}%`;
-                
-                if (timer <= 0) {
-                    clearInterval(timerInterval);
-                    
-                    // Reward user
-                    gameState.rcBalance += 1000;
-                    gameState.lastAdWatch = Date.now();
-                    
-                    // Close ad
-                    setTimeout(() => {
-                        adOverlay.style.display = 'none';
-                        
-                        // Show success message
-                        showSuccessMessage('You earned 1,000 RC for watching the ad!');
-                        
-                        // Create coins animation
-                        createCoinsAnimation();
-                        
-                        // Update UI
-                        updateUI();
-                        saveGame();
-                    }, 500);
-                }
-            }, 1000);
+            // Update UI
+            updateUI();
+            saveGame();
+            
+            showSuccessMessage(`Referral code applied! You received 1,000 RC (${formatDollars(rcToDollars(1000))} bonus`);
+        }
+        
+        // Skip referral code
+        function skipReferral() {
+            referralModal.style.display = 'none';
+            gameState.firstVisit = false;
+            saveGame();
         }
         
         // Show success message
@@ -1118,11 +1583,17 @@
         withdrawBtn.addEventListener('click', () => showScreen('withdraw'));
         withdrawNowBtn.addEventListener('click', processWithdrawal);
         copyBtn.addEventListener('click', copyReferralLink);
-        watchAdBtn.addEventListener('click', watchAd);
-        adClose.addEventListener('click', () => {
-            adOverlay.style.display = 'none';
-            showSuccessMessage('Ad skipped - no reward given');
-        });
+        
+        // Task event listeners
+        watchAdBtn.addEventListener('click', completeWatchAd);
+        visitWebsiteBtn.addEventListener('click', completeVisitWebsite);
+        followSocialBtn.addEventListener('click', completeFollowSocial);
+        tapsRewardBtn.addEventListener('click', claimTapsAchievement);
+        earnRewardBtn.addEventListener('click', claimEarnAchievement);
+        
+        // Referral modal event listeners
+        submitReferralBtn.addEventListener('click', submitReferral);
+        skipReferralBtn.addEventListener('click', skipReferral);
         
         // Bottom nav interaction
         navItems.forEach(item => {
@@ -1147,5 +1618,6 @@
             }
         `, styleSheet.cssRules.length);
     </script>
+    <script type='text/javascript' src='//pl26795990.profitableratecpm.com/45/78/44/4578440c5a3e8ed7c3b6e86d986c2d71.js'></script>
 </body>
 </html>
