@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROLLER COIN - Earn RC Coins</title>
+    <title>Roller Coin - Earn Crypto!</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -14,7 +14,7 @@
         }
         
         body {
-            background: linear-gradient(135deg, #8a2be2, #4b0082, #9400d3);
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -45,7 +45,7 @@
             color: #fff;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
             letter-spacing: 1px;
-            background: linear-gradient(to right, #ff9ff3, #feca57, #ff9ff3);
+            background: linear-gradient(to right, #4ecca3, #f9b248, #4ecca3);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 5px;
@@ -65,37 +65,37 @@
             text-align: center;
             margin-bottom: 25px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            border: 2px solid rgba(255, 182, 193, 0.5);
+            border: 2px solid rgba(78, 204, 163, 0.5);
         }
         
         .wallet-title {
             font-size: 1.5rem;
-            color: #feca57;
+            color: #f9b248;
             margin-bottom: 15px;
         }
         
         .balance {
             font-size: 2.8rem;
             font-weight: bold;
-            color: #ff9ff3;
-            text-shadow: 0 0 15px rgba(255, 158, 243, 0.7);
+            color: #4ecca3;
+            text-shadow: 0 0 15px rgba(78, 204, 163, 0.7);
             margin-bottom: 5px;
         }
         
         .coin-balance {
             font-size: 1.2rem;
-            color: #feca57;
+            color: #f9b248;
             margin-bottom: 15px;
         }
         
-        .withdraw-btn {
-            background: linear-gradient(to right, #feca57, #ff9ff3);
+        .btn {
+            background: linear-gradient(to right, #f9b248, #4ecca3);
             border: none;
             border-radius: 15px;
             padding: 15px 30px;
             font-size: 1.2rem;
             font-weight: 700;
-            color: #2c2c54;
+            color: #1a1a2e;
             cursor: pointer;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
@@ -105,14 +105,14 @@
             margin-top: 10px;
         }
         
-        .withdraw-btn:hover {
+        .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(254, 202, 87, 0.5);
+            box-shadow: 0 8px 20px rgba(249, 178, 72, 0.5);
         }
         
         /* Tap Area */
         .tap-area {
-            background: linear-gradient(45deg, #5f27cd, #341f97);
+            background: linear-gradient(45deg, #0f3460, #1a1a2e);
             height: 320px;
             border-radius: 20px;
             display: flex;
@@ -122,7 +122,7 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
-            border: 4px solid rgba(255, 182, 193, 0.5);
+            border: 4px solid rgba(78, 204, 163, 0.5);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
         
@@ -138,8 +138,8 @@
             animation: bounce 1.5s infinite;
             border-radius: 50%;
             overflow: hidden;
-            border: 5px solid #feca57;
-            box-shadow: 0 0 30px rgba(254, 202, 87, 0.7);
+            border: 5px solid #f9b248;
+            box-shadow: 0 0 30px rgba(249, 178, 72, 0.7);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -152,14 +152,14 @@
             font-weight: bold;
             text-align: center;
             line-height: 1.2;
-            color: #5f27cd;
+            color: #0f3460;
         }
         
         .money-animation {
             position: absolute;
             font-size: 1.8rem;
             font-weight: bold;
-            color: #feca57;
+            color: #f9b248;
             z-index: 3;
             pointer-events: none;
             text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
@@ -184,7 +184,7 @@
         .stat-item .value {
             font-size: 1.5rem;
             font-weight: bold;
-            color: #ff9ff3;
+            color: #4ecca3;
         }
         
         .stat-item .label {
@@ -199,12 +199,12 @@
             padding: 20px;
             margin-top: 20px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            border: 2px solid rgba(255, 182, 193, 0.5);
+            border: 2px solid rgba(78, 204, 163, 0.5);
         }
         
         .withdraw-title {
             font-size: 1.5rem;
-            color: #feca57;
+            color: #f9b248;
             margin-bottom: 15px;
             text-align: center;
         }
@@ -220,7 +220,7 @@
         .form-group label {
             display: block;
             margin-bottom: 8px;
-            color: #ff9ff3;
+            color: #4ecca3;
             font-weight: 600;
         }
         
@@ -236,60 +236,60 @@
         
         .usdt-info {
             font-size: 0.85rem;
-            color: #feca57;
+            color: #f9b248;
             margin-top: 10px;
             line-height: 1.4;
             text-align: center;
         }
         
         .coin-earning {
-            background: rgba(255, 182, 193, 0.2);
+            background: rgba(78, 204, 163, 0.2);
             padding: 5px 10px;
             border-radius: 10px;
             display: inline-block;
             margin: 5px 0;
             font-weight: 600;
-            color: #feca57;
+            color: #f9b248;
         }
         
         /* Referral Section */
-        .referral-section {
+        .section {
             background: rgba(0, 0, 0, 0.4);
             border-radius: 20px;
             padding: 20px;
             margin-top: 20px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            border: 2px solid rgba(255, 182, 193, 0.5);
+            border: 2px solid rgba(78, 204, 163, 0.5);
         }
         
-        .referral-title {
+        .section-title {
             font-size: 1.5rem;
-            color: #feca57;
+            color: #f9b248;
             margin-bottom: 15px;
             text-align: center;
         }
         
         .referral-code {
-            background: rgba(255, 182, 193, 0.1);
+            background: rgba(78, 204, 163, 0.1);
             border-radius: 10px;
             padding: 15px;
             text-align: center;
             font-size: 1.1rem;
             font-weight: bold;
-            color: #ff9ff3;
+            color: #4ecca3;
             margin: 15px 0;
-            border: 1px dashed #ff9ff3;
+            border: 1px dashed #4ecca3;
             word-break: break-all;
         }
         
         .copy-btn {
-            background: linear-gradient(to right, #feca57, #ff9ff3);
+            background: linear-gradient(to right, #f9b248, #4ecca3);
             border: none;
             border-radius: 10px;
             padding: 12px 20px;
             font-size: 1rem;
             font-weight: 600;
-            color: #2c2c54;
+            color: #1a1a2e;
             cursor: pointer;
             transition: all 0.3s;
             width: 100%;
@@ -298,7 +298,7 @@
         
         .copy-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(254, 202, 87, 0.5);
+            box-shadow: 0 5px 15px rgba(249, 178, 72, 0.5);
         }
         
         /* Bottom Navigation */
@@ -324,18 +324,18 @@
         }
         
         .nav-item.active {
-            background: linear-gradient(135deg, #feca57, #ff9ff3);
-            box-shadow: 0 5px 10px rgba(254, 202, 87, 0.5);
+            background: linear-gradient(135deg, #f9b248, #4ecca3);
+            box-shadow: 0 5px 10px rgba(249, 178, 72, 0.5);
         }
         
         .nav-item.active i,
         .nav-item.active span {
-            color: #2c2c54;
+            color: #1a1a2e;
         }
         
         .nav-item i {
             font-size: 1.5rem;
-            color: #ff9ff3;
+            color: #4ecca3;
             margin-bottom: 5px;
             transition: all 0.3s ease;
         }
@@ -349,7 +349,7 @@
         }
         
         .nav-item:hover {
-            background: rgba(255, 182, 193, 0.2);
+            background: rgba(78, 204, 163, 0.2);
         }
         
         /* Animations */
@@ -368,9 +368,9 @@
             position: absolute;
             width: 30px;
             height: 30px;
-            background: radial-gradient(circle at 30% 30%, #feca57, #ff9f43);
+            background: radial-gradient(circle at 30% 30%, #f9b248, #e67e22);
             border-radius: 50%;
-            box-shadow: 0 0 10px #feca57;
+            box-shadow: 0 0 10px #f9b248;
             pointer-events: none;
             opacity: 0;
             z-index: 1;
@@ -414,6 +414,140 @@
             to { opacity: 0; }
         }
         
+        /* Ad Section */
+        .ad-section {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(78, 204, 163, 0.5);
+            text-align: center;
+        }
+        
+        .ad-title {
+            font-size: 1.5rem;
+            color: #f9b248;
+            margin-bottom: 15px;
+        }
+        
+        .ad-description {
+            color: #ddd;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+        
+        .ad-btn {
+            background: linear-gradient(to right, #f9b248, #4ecca3);
+            border: none;
+            border-radius: 15px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            display: inline-block;
+            width: 100%;
+            max-width: 300px;
+            margin: 10px auto;
+        }
+        
+        .ad-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(249, 178, 72, 0.5);
+        }
+        
+        .ad-btn.disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .ad-reward {
+            font-size: 1.2rem;
+            color: #f9b248;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+        
+        /* Ad Simulation */
+        .ad-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            display: none;
+        }
+        
+        .ad-container {
+            width: 90%;
+            max-width: 500px;
+            background: #1a1a2e;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(78, 204, 163, 0.5);
+        }
+        
+        .ad-header {
+            background: #0f3460;
+            padding: 15px;
+            text-align: center;
+            color: #f9b248;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .ad-content {
+            height: 300px;
+            background: #16213e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        .ad-content i {
+            font-size: 4rem;
+            color: #f9b248;
+            margin-bottom: 20px;
+        }
+        
+        .ad-timer {
+            font-size: 1.5rem;
+            color: #4ecca3;
+            margin: 20px 0;
+        }
+        
+        .ad-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #0f3460;
+        }
+        
+        .progress {
+            height: 100%;
+            width: 0%;
+            background: #4ecca3;
+            transition: width 0.1s linear;
+        }
+        
         /* Responsive adjustments */
         @media (max-width: 480px) {
             .container {
@@ -444,6 +578,28 @@
         <i class="fas fa-check-circle"></i> Operation completed successfully!
     </div>
 
+    <!-- Ad Simulation Overlay -->
+    <div class="ad-overlay" id="ad-overlay">
+        <div class="ad-close" id="ad-close">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="ad-container">
+            <div class="ad-header">
+                Advertisement - Earn 1000 RC Coins!
+            </div>
+            <div class="progress-bar">
+                <div class="progress" id="ad-progress"></div>
+            </div>
+            <div class="ad-content">
+                <i class="fas fa-ad"></i>
+                <h3>Roller Coin Premium Offer</h3>
+                <p>Watch this ad to earn 1000 RC coins!</p>
+                <div class="ad-timer" id="ad-timer">5</div>
+                <p>Please watch until the end to receive your reward</p>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="header">
             <h1 id="screen-title">ROLLER COIN</h1>
@@ -456,7 +612,7 @@
                 <div class="wallet-title">Your RC Balance</div>
                 <div class="balance" id="balance">0 RC</div>
                 <div class="coin-balance" id="coin-balance">$0.00</div>
-                <button class="withdraw-btn" id="withdraw-btn">
+                <button class="btn" id="withdraw-btn">
                     <i class="fas fa-wallet"></i> Withdraw Now
                 </button>
             </div>
@@ -483,6 +639,16 @@
                     <div class="label">Multiplier</div>
                 </div>
             </div>
+            
+            <div class="ad-section">
+                <div class="ad-title">Watch Ads & Earn</div>
+                <div class="ad-description">Watch a short video ad and earn 1,000 RC coins instantly!</div>
+                <div class="ad-reward">+1,000 RC per ad</div>
+                <button class="ad-btn" id="watch-ad-btn">
+                    <i class="fas fa-ad"></i> Watch Ad Now
+                </button>
+                <p class="usdt-info">Available every 30 seconds</p>
+            </div>
         </div>
         
         <!-- Withdraw Screen -->
@@ -500,9 +666,11 @@
                     <div class="form-group">
                         <label for="withdraw-method"><i class="fas fa-coins"></i> Withdrawal Method</label>
                         <select id="withdraw-method">
-                            <option value="bnb">BNB Smart Child</option>
+                            <option value="bnb">BNB Smart Chain</option>
                             <option value="usdd">USDD TRC-20</option>
                             <option value="trx">TRX</option>
+                            <option value="btc">Bitcoin</option>
+                            <option value="eth">Ethereum</option>
                         </select>
                     </div>
                     
@@ -519,13 +687,13 @@
                     <p class="usdt-info">Minimum withdrawal: 10,000 RC ($1.00)</p>
                 </div>
                 
-                <button class="withdraw-btn" id="withdraw-now-btn" style="margin-top: 20px;">
+                <button class="btn" id="withdraw-now-btn" style="margin-top: 20px;">
                     <i class="fas fa-paper-plane"></i> Process Withdrawal
                 </button>
             </div>
             
-            <div class="referral-section" style="margin-top: 20px;">
-                <div class="referral-title">Withdrawal History</div>
+            <div class="section" style="margin-top: 20px;">
+                <div class="section-title">Withdrawal History</div>
                 <div style="text-align: center; color: #bbb; padding: 20px;">
                     <i class="fas fa-history" style="font-size: 2rem; margin-bottom: 10px;"></i>
                     <p>No withdrawal history yet</p>
@@ -541,8 +709,8 @@
                 <div class="coin-balance" id="referral-coin-balance">$0.00</div>
             </div>
             
-            <div class="referral-section">
-                <div class="referral-title">Refer Friends & Earn</div>
+            <div class="section">
+                <div class="section-title">Refer Friends & Earn</div>
                 <p>Invite friends using your link and earn 10% of their earnings!</p>
                 <div class="referral-code" id="referral-code">https://rollercoin.com/?ref=RC-7A3B9F</div>
                 <button class="copy-btn" id="copy-btn">
@@ -561,8 +729,8 @@
                 </div>
             </div>
             
-            <div class="referral-section" style="margin-top: 20px;">
-                <div class="referral-title">Your Referrals</div>
+            <div class="section" style="margin-top: 20px;">
+                <div class="section-title">Your Referrals</div>
                 <div style="text-align: center; color: #bbb; padding: 20px;">
                     <i class="fas fa-users" style="font-size: 2rem; margin-bottom: 10px;"></i>
                     <p>No referrals yet</p>
@@ -590,12 +758,13 @@
     <script>
         // Game state
         const gameState = {
-            ucBalance: 0,
+            rcBalance: 0,
             perTap: 10,
             totalTaps: 0,
             multiplier: 1,
             referralEarnings: 0,
-            totalReferrals: 0
+            totalReferrals: 0,
+            lastAdWatch: 0
         };
         
         // DOM Elements
@@ -621,6 +790,11 @@
         const walletAddress = document.getElementById('wallet-address');
         const withdrawAmount = document.getElementById('withdraw-amount');
         const successMessage = document.getElementById('success-message');
+        const watchAdBtn = document.getElementById('watch-ad-btn');
+        const adOverlay = document.getElementById('ad-overlay');
+        const adClose = document.getElementById('ad-close');
+        const adProgress = document.getElementById('ad-progress');
+        const adTimer = document.getElementById('ad-timer');
         
         // Screen elements
         const screens = {
@@ -646,16 +820,19 @@
             
             // Set home screen as active
             showScreen('home');
+            
+            // Start ad button state updater
+            setInterval(updateAdButton, 1000);
         }
         
         // Update UI with current game state
         function updateUI() {
-            const dollars = gameState.ucBalance / 10000;
+            const dollars = gameState.rcBalance / 10000;
             
-            balanceEl.textContent = `${gameState.ucBalance.toLocaleString()} RC`;
+            balanceEl.textContent = `${gameState.rcBalance.toLocaleString()} RC`;
             coinBalanceEl.textContent = `$${dollars.toFixed(2)}`;
             
-            withdrawBalanceEl.textContent = `${gameState.ucBalance.toLocaleString()} RC`;
+            withdrawBalanceEl.textContent = `${gameState.rcBalance.toLocaleString()} RC`;
             withdrawCoinBalanceEl.textContent = `$${dollars.toFixed(2)}`;
             
             referralBalanceEl.textContent = `${gameState.referralEarnings.toLocaleString()} RC`;
@@ -668,13 +845,29 @@
             referralEarningsEl.textContent = `${gameState.referralEarnings.toLocaleString()} RC`;
             
             // Update withdraw button state
-            withdrawBtn.disabled = gameState.ucBalance < 10000;
+            withdrawBtn.disabled = gameState.rcBalance < 10000;
             if (withdrawBtn.disabled) {
                 withdrawBtn.style.opacity = '0.6';
                 withdrawBtn.style.cursor = 'not-allowed';
             } else {
                 withdrawBtn.style.opacity = '1';
                 withdrawBtn.style.cursor = 'pointer';
+            }
+        }
+        
+        // Update ad button state
+        function updateAdButton() {
+            const now = Date.now();
+            const canWatchAd = now - gameState.lastAdWatch > 30000; // 30 seconds cooldown
+            
+            watchAdBtn.disabled = !canWatchAd;
+            if (watchAdBtn.disabled) {
+                watchAdBtn.classList.add('disabled');
+                const secondsLeft = Math.ceil((30000 - (now - gameState.lastAdWatch)) / 1000);
+                watchAdBtn.innerHTML = `<i class="fas fa-clock"></i> Try again in ${secondsLeft}s`;
+            } else {
+                watchAdBtn.classList.remove('disabled');
+                watchAdBtn.innerHTML = `<i class="fas fa-ad"></i> Watch Ad Now`;
             }
         }
         
@@ -714,7 +907,7 @@
         function handleTap(e) {
             // Calculate earnings
             const earnings = gameState.perTap * gameState.multiplier;
-            gameState.ucBalance += earnings;
+            gameState.rcBalance += earnings;
             gameState.totalTaps++;
             
             // Create money animation
@@ -810,18 +1003,20 @@
                 return;
             }
             
-            if (gameState.ucBalance < amount) {
+            if (gameState.rcBalance < amount) {
                 showSuccessMessage('Insufficient RC balance');
                 return;
             }
             
             // Process withdrawal
-            gameState.ucBalance -= amount;
+            gameState.rcBalance -= amount;
             
             // Show success message
             const methodName = 
-                method === 'bnb' ? 'BNB Smart Child' : 
-                method === 'usdd' ? 'USDD TRC-20' : 'TRX';
+                method === 'bnb' ? 'BNB Smart Chain' : 
+                method === 'usdd' ? 'USDD TRC-20' : 
+                method === 'trx' ? 'TRX' : 
+                method === 'btc' ? 'Bitcoin' : 'Ethereum';
                 
             showSuccessMessage(`${amount.toLocaleString()} RC sent to your ${methodName} wallet!`);
             
@@ -848,6 +1043,57 @@
                 });
         }
         
+        // Show ad and reward user
+        function watchAd() {
+            const now = Date.now();
+            if (now - gameState.lastAdWatch < 30000) { // 30 seconds cooldown
+                const secondsLeft = Math.ceil((30000 - (now - gameState.lastAdWatch)) / 1000);
+                showSuccessMessage(`Please wait ${secondsLeft} seconds before watching another ad`);
+                return;
+            }
+            
+            // Show ad simulation
+            adOverlay.style.display = 'flex';
+            
+            // Reset ad timer
+            let timer = 5;
+            adTimer.textContent = timer;
+            adProgress.style.width = '0%';
+            
+            // Start timer
+            const timerInterval = setInterval(() => {
+                timer--;
+                adTimer.textContent = timer;
+                
+                // Update progress bar
+                const progress = 100 - (timer * 20);
+                adProgress.style.width = `${progress}%`;
+                
+                if (timer <= 0) {
+                    clearInterval(timerInterval);
+                    
+                    // Reward user
+                    gameState.rcBalance += 1000;
+                    gameState.lastAdWatch = Date.now();
+                    
+                    // Close ad
+                    setTimeout(() => {
+                        adOverlay.style.display = 'none';
+                        
+                        // Show success message
+                        showSuccessMessage('You earned 1,000 RC for watching the ad!');
+                        
+                        // Create coins animation
+                        createCoinsAnimation();
+                        
+                        // Update UI
+                        updateUI();
+                        saveGame();
+                    }, 500);
+                }
+            }, 1000);
+        }
+        
         // Show success message
         function showSuccessMessage(message) {
             successMessage.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
@@ -872,6 +1118,11 @@
         withdrawBtn.addEventListener('click', () => showScreen('withdraw'));
         withdrawNowBtn.addEventListener('click', processWithdrawal);
         copyBtn.addEventListener('click', copyReferralLink);
+        watchAdBtn.addEventListener('click', watchAd);
+        adClose.addEventListener('click', () => {
+            adOverlay.style.display = 'none';
+            showSuccessMessage('Ad skipped - no reward given');
+        });
         
         // Bottom nav interaction
         navItems.forEach(item => {
